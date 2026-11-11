@@ -43,3 +43,20 @@ Sources checked 2026-11-10. Prices, stock and fit are not guaranteed. The actual
 Use supplier datasheets to create a dimensioned BOM before changing CAD. A slide crossfader would require a different mechanical design; the current firmware assumes a third analog potentiometer and does not require rotary construction electrically.
 
 Primary board reference: [KB2040 pinouts](https://learn.adafruit.com/adafruit-kb2040/pinouts).
+
+## Pot and knob pair for enclosure planning
+
+Reviewed 2026-11-11. These are **candidates**, not confirmed installed components or a verified fit in the supplied CAD.
+
+| Candidate | Verified source details | Consequence for this build |
+| --- | --- | --- |
+| [Adafruit 562](https://www.adafruit.com/product/562), linked as P160KN-0QC15B10K | 10 kΩ linear; 16mm body; 0.2-inch terminal spacing | Electrically suitable as a 3.3V voltage divider; reserve space for the body and leads below the panel |
+| [Adafruit 2046 red T18 knob](https://www.adafruit.com/product/2046) | Supplier explicitly pairs it with 562; 15mm base and 11mm top diameters | Candidate shaft match; do not substitute a D-shaft knob just because the diameter looks similar |
+
+The supplier-linked [BI Technologies P160 datasheet](https://cdn-shop.adafruit.com/product-files/562/p160.pdf), pages 2–3, decodes the candidate as PC-pin style KN, no detent (`0`), type C shaft (6mm, 18 teeth), 15mm shaft length and linear taper (`B`). Its outline specifies an M7 × 0.75 bushing. Use the actual part drawing and sample when setting panel thickness and mounting-hole clearance; the bushing thread is not itself a hole-tolerance specification.
+
+The datasheet gives nominal electrical travel of 260° versus mechanical travel of 300° ±10°. Allow for travel near the stops where output changes little. With no center detent, this candidate provides no tactile cue for neutral filter or crossfader center; assess that tradeoff before finalizing all three controls.
+
+The 15mm knob base is not sufficient spacing by itself: the pot body is wider, and finger access, nearby toggles, solder joints and USB access need clearance. Print a panel test coupon and dry-fit samples before revising the whole enclosure. No dimensions have been measured on the existing prototype.
+
+**Availability:** 562 retrievals disagreed on stock status, so availability is unconfirmed. The 2046 page showed stock when reviewed; quantity is not reserved and can change. Recheck both supplier pages before ordering. No purchases were made.

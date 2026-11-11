@@ -12,6 +12,14 @@ Reviewed 2026-11-10. Prefer these primary sources when changing the build.
 | [Adafruit MIDI examples](https://docs.circuitpython.org/projects/midi/en/stable/examples.html) | Compare USB MIDI initialization with maintained examples |
 | [Adafruit MIDI source](https://github.com/adafruit/Adafruit_CircuitPython_MIDI) | Investigate library behavior and compatibility |
 
+Additional sources reviewed 2026-11-11:
+
+| Resource | Use in Mini-MIDI |
+| --- | --- |
+| [CircuitPython analogio API](https://docs.circuitpython.org/en/stable/shared-bindings/analogio/index.html#analogio.AnalogIn.value) | Interpret the API's 0–65535 scale when entering independent pot bounds |
+| [BI Technologies P160 datasheet, linked by supplier](https://cdn-shop.adafruit.com/product-files/562/p160.pdf) | Decode the 562 candidate's shaft, taper, detent and mounting options; check electrical versus mechanical travel |
+| [Adafruit 562 pot](https://www.adafruit.com/product/562) and [2046 knob](https://www.adafruit.com/product/2046) | Candidate pair and supplier dimensions; see hardware notes for unresolved stock and physical-fit limits |
+
 The hardware page separates identified product candidates from general supplier links. Before selecting a new SKU, add its manufacturer datasheet, exact part number, dimensions and electrical compatibility. Never treat a supplier homepage as evidence that a specific part fits.
 
 ## Useful next revisions
