@@ -6,7 +6,7 @@ A handheld USB MIDI controller for practicing DJ mixes on the go. The prototype 
 
 ## Firmware
 
-- [`firmware/code.py`](firmware/code.py) + [`firmware/midi_logic.py`](firmware/midi_logic.py): revision 2, with switch debounce and no filter-switch reboot. **Hardware validation pending.**
+- [`firmware/code.py`](firmware/code.py) + [`firmware/midi_logic.py`](firmware/midi_logic.py): revision 2, with switch debounce, separate pot calibration ranges and no filter-switch reboot. **Hardware validation pending.**
 - [`code revision 1`](code%20revision%201) and [`proto1 code`](proto1%20code): original snapshots, retained for comparison.
 
 Install both revision 2 files at the root of `CIRCUITPY`, not inside a `firmware` folder. See the [setup and bench checklist](docs/SETUP.md).

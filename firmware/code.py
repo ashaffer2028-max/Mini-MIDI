@@ -6,7 +6,7 @@ import digitalio
 import usb_midi
 import adafruit_midi
 from adafruit_midi.control_change import ControlChange
-from midi_logic import StableSwitches, select_cc, should_send_midi
+from midi_logic import PotRange, StableSwitches, select_cc, should_send_midi
 
 # ==============================================================================
 # PIN & HARDWARE CONFIGURATION
@@ -52,9 +52,13 @@ OVERSAMPLE_COUNT = 6    # Reduced sample overhead for fast loop execution
 EMA_ALPHA = 0.12        # High smoothing factor for stable values
 DEBOUNCE_SECONDS = 0.020  # Require a stable switch tuple for 20ms
 
-# Raw ADC Calibration Boundaries (Guarantees full 0-127 reach)
-ADC_MIN = 800
-ADC_MAX = 64700
+# Per-pot raw ADC bounds; inherited defaults, not measured calibration.
+# Edit each pair independently after measuring that pot at both stops.
+pot_ranges = {
+    "deck_a": PotRange(800, 64700),
+    "deck_b": PotRange(800, 64700),
+    "crossfader": PotRange(800, 64700),
+}
 
 # State Buffers
 ema_vals = {"deck_a": None, "deck_b": None, "crossfader": None}
@@ -85,11 +89,8 @@ def get_smoothed_adc(pin, key):
     else:
         ema_vals[key] = (EMA_ALPHA * raw_avg) + ((1.0 - EMA_ALPHA) * ema_vals[key])
 
-    # 3. Scaled Mapping with Clamping to guarantee 0 and 127 endpoints
-    clamped_raw = max(ADC_MIN, min(ADC_MAX, ema_vals[key]))
-    midi_val = int(((clamped_raw - ADC_MIN) * 127) / (ADC_MAX - ADC_MIN))
-    
-    return max(0, min(127, midi_val))
+    # 3. Clamp and scale using this pot's calibrated range.
+    return pot_ranges[key].to_midi(ema_vals[key])
 
 # ==============================================================================
 # MAIN LOOP
@@ -139,4 +140,3 @@ while True:
         last_sent_vals["crossfader"] = val_xfader
 
     time.sleep(0.002)  # Minimum sleep only; ADC, filtering and USB add overhead
-

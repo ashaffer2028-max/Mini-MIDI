@@ -1,6 +1,20 @@
 """Hardware-independent routing and switch filtering for Mini-MIDI."""
 
 
+class PotRange:
+    """Map one calibrated CircuitPython ADC range to 7-bit MIDI values."""
+
+    def __init__(self, minimum, maximum):
+        if not 0 <= minimum < maximum <= 65535:
+            raise ValueError("Pot range must satisfy 0 <= min < max <= 65535")
+        self.minimum = minimum
+        self.maximum = maximum
+
+    def to_midi(self, raw):
+        clamped = max(self.minimum, min(self.maximum, raw))
+        return int((clamped - self.minimum) * 127 / (self.maximum - self.minimum))
+
+
 class StableSwitches:
     """Accept a new tuple only after it stays unchanged for interval seconds."""
 

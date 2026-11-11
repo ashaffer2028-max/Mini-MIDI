@@ -4,7 +4,45 @@ import sys
 import unittest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / 'firmware'))
-from midi_logic import StableSwitches, select_cc, should_send_midi
+from midi_logic import PotRange, StableSwitches, select_cc, should_send_midi
+
+
+class CalibrationTests(unittest.TestCase):
+    def test_defaults_preserve_previous_mapping_for_full_adc_domain(self):
+        scale = PotRange(800, 64700)
+        for raw in range(65536):
+            clamped = max(800, min(64700, raw))
+            expected = int((clamped - 800) * 127 / (64700 - 800))
+            self.assertEqual(scale.to_midi(raw), expected)
+
+    def test_fractional_ema_input(self):
+        scale = PotRange(1000, 64000)
+        self.assertEqual(scale.to_midi(32500.5), 63)
+
+    def test_endpoints_clamp_outside_calibration(self):
+        scale = PotRange(1000, 64000)
+        for raw in (0, 999, 1000):
+            self.assertEqual(scale.to_midi(raw), 0)
+        for raw in (64000, 64001, 65535):
+            self.assertEqual(scale.to_midi(raw), 127)
+
+    def test_independent_pot_ranges(self):
+        deck_a = PotRange(1000, 64000)
+        deck_b = PotRange(2000, 62000)
+        self.assertEqual(deck_a.to_midi(62000), 122)
+        self.assertEqual(deck_b.to_midi(62000), 127)
+
+    def test_invalid_ranges_fail_at_construction(self):
+        for low, high in ((800, 800), (64700, 800), (-1, 64000), (0, 65536)):
+            with self.subTest(low=low, high=high):
+                with self.assertRaises(ValueError):
+                    PotRange(low, high)
+
+    def test_custom_range_is_monotonic_and_bounded(self):
+        scale = PotRange(1200, 63000)
+        values = [scale.to_midi(raw) for raw in range(65536)]
+        self.assertEqual(values, sorted(values))
+        self.assertEqual(set(values), set(range(128)))
 
 
 class RoutingTests(unittest.TestCase):

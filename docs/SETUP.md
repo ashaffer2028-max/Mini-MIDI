@@ -15,7 +15,17 @@ The original D2 filter switch also triggered a reboot after three seconds. A mai
 
 Switch states are accepted after the whole input tuple remains unchanged for 20ms. This suppresses short contact bounces while preserving the previous priority and CC assignments. Actual acceptance time includes loop overhead. A selector intermediate state lasting longer than the debounce interval can still be accepted.
 
-ADC oversampling, EMA smoothing and calibration defaults are inherited from revision 1. `ADC_MIN=800` and `ADC_MAX=64700` are starting values, not measured guarantees for every build. Measure each pot at both stops, check stability, then adjust bounds if needed. Smaller EMA alpha means more smoothing and more response delay. The 2ms sleep does not establish a measured 500Hz loop rate.
+ADC oversampling, EMA smoothing and calibration defaults are inherited from revision 1. Each entry in `pot_ranges` starts at `PotRange(800, 64700)`, not a measured guarantee for every build. The three pots can now be calibrated independently. Smaller EMA alpha means more smoothing and more response delay. The 2ms sleep does not establish a measured 500Hz loop rate.
+
+## Measure and enter per-pot bounds
+
+1. Start revision 2 normally, then interrupt it with Ctrl-C in the CircuitPython serial console. MIDI transmission stops while measuring; the initialized `pot_deck_a`, `pot_deck_b` and `pot_crossfader` objects remain available in that session.
+2. With all pots at their low-output stops, run `print(pot_deck_a.value, pot_deck_b.value, pot_crossfader.value)` repeatedly. Record a range of settled readings for each pot, not one outlier. Repeat at the high-output stops. Raw values increasing in the wrong physical direction indicate reversed outer terminals; calibration does not reverse polarity.
+3. Edit only that pot's `PotRange(minimum, maximum)` pair in `firmware/code.py`. Choose the lower bound near the upper edge of the settled low-stop readings and the upper bound near the lower edge of high-stop readings, so small endpoint noise stays clamped. Avoid wide margins that discard useful travel. If the two stop ranges overlap or the measured span is unexpectedly narrow, check wiring before calibrating around it.
+4. Bounds must satisfy `0 <= minimum < maximum <= 65535`; invalid bounds raise `ValueError` at startup instead of dividing by zero or reversing the scale. This check does not prove that a physical range is healthy.
+5. Save both firmware files to `CIRCUITPY` and press Ctrl-D to restart if the console remains stopped. After the EMA settles, verify 0 and 127 at the stops and a smooth sweep in a MIDI monitor. Record the settings and any idle jitter. The middle position still uses a linear mapping, not center-detent calibration.
+
+CircuitPython exposes `AnalogIn.value` on a 0–65535 scale even with a lower-resolution ADC; this is not a claim of 16-bit physical accuracy. Source reviewed 2026-11-11: [official analogio API](https://docs.circuitpython.org/en/stable/shared-bindings/analogio/index.html#analogio.AnalogIn.value). No endpoint measurements have been taken for this repository.
 
 D6 intentionally sends no startup CC; toggle it after connecting if the software's initial state differs. All pots send an initial value, and mode changes resend their physical positions.
 
