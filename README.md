@@ -39,4 +39,4 @@ python -m unittest discover -s tests -v
 python -m py_compile firmware/code.py firmware/midi_logic.py
 ```
 
-These checks cover routing, deadband and switch debounce. They do not verify USB enumeration, ADC noise, physical wiring or real latency.
+These checks cover routing, calibration, deadband and switch debounce. `tests/test_firmware.py` also runs the actual application with scripted pins, simulated time and captured MIDI sends to check startup, mode changes and independent switch handling. It replaces the hardware and MIDI library interfaces, so it does not verify CircuitPython runtime compatibility, USB enumeration, ADC noise, physical wiring or real latency.
