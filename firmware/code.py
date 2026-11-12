@@ -8,6 +8,14 @@ import adafruit_midi
 from adafruit_midi.control_change import ControlChange
 from midi_logic import PotRange, StableSwitches, select_cc, should_send_midi
 
+# USB devices are configured in boot.py, before this application starts.
+# Explain a disabled/missing MIDI interface before allocating control pins.
+if len(usb_midi.ports) < 2:
+    raise RuntimeError(
+        "USB MIDI output unavailable. Check boot.py for usb_midi.disable(); "
+        "enable MIDI there and hard-reset the board. See docs/SETUP.md."
+    )
+
 # ==============================================================================
 # PIN & HARDWARE CONFIGURATION
 # ==============================================================================

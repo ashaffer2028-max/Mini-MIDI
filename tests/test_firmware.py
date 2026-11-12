@@ -80,6 +80,19 @@ def run_firmware(frames, ports=(object(), object())):
 
 
 class FirmwareTests(unittest.TestCase):
+    def test_missing_usb_output_has_actionable_startup_error(self):
+        for ports in ((), (object(),)):
+            with self.subTest(port_count=len(ports)):
+                with self.assertRaisesRegex(RuntimeError, 'USB MIDI output unavailable.*boot.py'):
+                    run_firmware([(0, {})], ports=ports)
+
+    def test_settled_d6_sends_one_on_and_one_off(self):
+        sent = run_firmware([(0, {}), (.001, {'D6': False}),
+                             (.025, {'D6': False}), (.05, {'D6': False}),
+                             (.06, {}), (.085, {}), (.1, {})])
+        self.assertEqual([m for m in sent if m[2] == 13],
+                         [(.025, 0, 13, 127), (.085, 0, 13, 0)])
+
     def test_d6_chatter_cannot_starve_filter_mode(self):
         frames = [(0, {})]
         frames += [(i / 1000, {'D2': False, 'D6': bool(i % 2)})

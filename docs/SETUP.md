@@ -29,6 +29,17 @@ CircuitPython exposes `AnalogIn.value` on a 0–65535 scale even with a lower-re
 
 D6 intentionally sends no startup CC; toggle it after connecting if the software's initial state differs. All pots send an initial value, and mode changes resend their physical positions.
 
+## USB MIDI troubleshooting
+
+If startup reports **USB MIDI output unavailable**, the program found fewer than two USB MIDI ports. It stops before initializing control pins, instead of failing later with an index error. This check does not prove the host can see or use the device.
+
+1. Inspect an existing `boot.py` for `usb_midi.disable()`. USB MIDI is normally enabled by default. Back up the file before editing; preserve other custom setup.
+2. If MIDI was deliberately disabled, remove that call or replace it with `usb_midi.enable()` in `boot.py`. Do not put USB enable/disable calls in `code.py`: the USB device setup has already happened by then. No `boot.py` is required for the ordinary default configuration.
+3. Perform a hard reset with the board reset button or unplug/replug USB. Saving a file or Ctrl-D alone does not rerun `boot.py`. Check `boot_out.txt` and the serial console for boot errors or safe-mode messages.
+4. If ports exist but the host shows no MIDI device, check the data cable, host MIDI settings and USB connection. Do not erase firmware or disable other interfaces without evidence of the cause. A USB endpoint-allocation error is a separate boot issue; follow the official guide before changing interfaces.
+
+Sources reviewed 2026-11-12: [CircuitPython usb_midi API](https://docs.circuitpython.org/en/stable/shared-bindings/usb_midi/) and [Adafruit USB setup/reset guidance](https://learn.adafruit.com/customizing-usb-devices-in-circuitpython/circuitpy-midi-serial). Missing-port behavior is covered by simulated startup tests; enumeration and recovery still need a real KB2040.
+
 ## Bench checklist — pending physical execution
 
 - [ ] Check wiring against the electrical table, especially selector contacts and 3.3V pot supply.
