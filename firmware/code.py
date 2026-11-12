@@ -50,7 +50,7 @@ midi = adafruit_midi.MIDI(midi_out=usb_midi.ports[1], out_channel=0)
 # Performance & Anti-Jitter Tuning
 OVERSAMPLE_COUNT = 6    # Reduced sample overhead for fast loop execution
 EMA_ALPHA = 0.12        # High smoothing factor for stable values
-DEBOUNCE_SECONDS = 0.020  # Require a stable switch tuple for 20ms
+DEBOUNCE_SECONDS = 0.020  # Each physical control settles independently
 
 # Per-pot raw ADC bounds; inherited defaults, not measured calibration.
 # Edit each pair independently after measuring that pot at both stops.
@@ -67,11 +67,13 @@ last_cc = {"deck_a": -1, "deck_b": -1}
 
 # Pre-read startup state to eliminate phantom MIDI on plugin
 last_extra_state = not spst_extra.value
-switches = StableSwitches(
-    (spst_filter.value, dpdt_pin1.value, dpdt_pin6.value,
-     spst_d5.value, spst_extra.value),
-    time.monotonic(), DEBOUNCE_SECONDS,
-)
+startup_time = time.monotonic()
+switches = {
+    "filter": StableSwitches((spst_filter.value,), startup_time, DEBOUNCE_SECONDS),
+    "eq": StableSwitches((dpdt_pin1.value, dpdt_pin6.value), startup_time, DEBOUNCE_SECONDS),
+    "split": StableSwitches((spst_d5.value,), startup_time, DEBOUNCE_SECONDS),
+    "extra": StableSwitches((spst_extra.value,), startup_time, DEBOUNCE_SECONDS),
+}
 
 # ==============================================================================
 # HELPER FUNCTIONS
@@ -99,11 +101,12 @@ def get_smoothed_adc(pin, key):
 while True:
     now = time.monotonic()
 
-    # Debounce the whole tuple so a selector transition is handled atomically.
-    filter_high, eq_high, eq_low, split_high, extra_high = switches.update(
-        (spst_filter.value, dpdt_pin1.value, dpdt_pin6.value,
-         spst_d5.value, spst_extra.value), now
-    )
+    # Separate physical controls cannot restart each other's debounce timer.
+    # Keep the two EQ contacts together to avoid accepting a mixed transition.
+    filter_high, = switches["filter"].update((spst_filter.value,), now)
+    eq_high, eq_low = switches["eq"].update((dpdt_pin1.value, dpdt_pin6.value), now)
+    split_high, = switches["split"].update((spst_d5.value,), now)
+    extra_high, = switches["extra"].update((spst_extra.value,), now)
     is_d5_on = not split_high
     is_filter_mode = not filter_high
 

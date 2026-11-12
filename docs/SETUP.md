@@ -13,7 +13,7 @@
 
 The original D2 filter switch also triggered a reboot after three seconds. A maintained switch could therefore reset the board repeatedly during ordinary filter use. Revision 2 removes that timer; use the board's physical reset facility when needed.
 
-Switch states are accepted after the whole input tuple remains unchanged for 20ms. This suppresses short contact bounces while preserving the previous priority and CC assignments. Actual acceptance time includes loop overhead. A selector intermediate state lasting longer than the debounce interval can still be accepted.
+Each physical switch is accepted after its input remains unchanged for 20ms. D2, D5 and D6 have independent timers, so chatter on one cannot postpone another control. The two EQ contacts share one timer to keep their transition together. This suppresses short contact bounces while preserving the previous priority and CC assignments. Actual acceptance time includes loop overhead. A selector intermediate state lasting longer than the debounce interval can still be accepted.
 
 ADC oversampling, EMA smoothing and calibration defaults are inherited from revision 1. Each entry in `pot_ranges` starts at `PotRange(800, 64700)`, not a measured guarantee for every build. The three pots can now be calibrated independently. Smaller EMA alpha means more smoothing and more response delay. The 2ms sleep does not establish a measured 500Hz loop rate.
 
@@ -42,3 +42,5 @@ D6 intentionally sends no startup CC; toggle it after connecting if the software
 - [ ] Record CircuitPython/library versions, actual component models, calibration measurements and host application.
 
 Desktop checks: `python -m unittest discover -s tests -v` and `python -m py_compile firmware/code.py firmware/midi_logic.py`. Hardware testing remains necessary even when these pass.
+
+Debounce design reference reviewed 2026-11-12: [Adafruit Debouncer API](https://docs.circuitpython.org/projects/debouncer/en/latest/api.html). Mini-MIDI retains its own small polling helper and adds no library dependency. Independent timers are a project design choice; the firmware-loop regression tests reproduce unrelated-switch chatter using simulated inputs, not physical contacts.
