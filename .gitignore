@@ -1,0 +1,11 @@
+# Python development artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor and OS artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
