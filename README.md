@@ -20,6 +20,7 @@ The active firmware is revision 2, with independent switch debounce, per-pot cal
 | [`hardware/`](hardware/README.md) | Hardware file index and enclosure CAD export |
 | [`docs/`](docs/README.md) | Setup, wiring, parts, MIDI mapping and technical resources |
 | [`docs/images/`](docs/images/) | Prototype photos used in documentation |
+| [`tools/`](tools/README.md) | Temporary on-board diagnostics for collecting real calibration readings |
 | [`tests/`](tests/) | Desktop unit tests and simulated firmware-loop tests |
 | [`archive/`](archive/README.md) | Original firmware snapshots, preserved for reference |
 

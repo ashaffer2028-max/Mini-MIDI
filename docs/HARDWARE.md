@@ -35,7 +35,7 @@ Sources checked 2026-11-10. Prices, stock and fit are not guaranteed. The actual
 | 1 | Adafruit KB2040, product 5302 | [Adafruit](https://www.adafruit.com/product/5302) | USB port clearance, headers and board mounting |
 | 3 | 10 kΩ linear rotary pot; product 562 is one prototype candidate | [Adafruit](https://www.adafruit.com/product/562) | Shaft/knob fit, bushing thread, body depth and pin spacing |
 | 3 | Maintained SPST ON-OFF switch | [DigiKey](https://www.digikey.com/) / [Mouser](https://www.mouser.com/) | Panel opening and low-current contact suitability; no specific SKU selected |
-| 1 | Three-position selector matching truth table above | [DigiKey](https://www.digikey.com/) / [Mouser](https://www.mouser.com/) | Contact diagram, not just “DPDT”; no specific SKU selected |
+| 1 | Maintained center-off selector matching the truth table | [C&K 7103SYZBE candidate](#specific-eq-selector-candidate) | SPDT option below; fit and installed model unverified |
 | 3 | Knobs matching selected pot shaft | [SparkFun](https://www.sparkfun.com/) / Adafruit | Shaft diameter, flat/spline and nearby switch clearance |
 | 1 | USB data cable matching host and board | Adafruit / SparkFun | Data support, connector strain relief and bend radius |
 | As needed | Wire, perfboard, insulation, mounting hardware | Adafruit / SparkFun | Enclosure space, solder accessibility and serviceability |
@@ -60,3 +60,28 @@ The datasheet gives nominal electrical travel of 260° versus mechanical travel 
 The 15mm knob base is not sufficient spacing by itself: the pot body is wider, and finger access, nearby toggles, solder joints and USB access need clearance. Print a panel test coupon and dry-fit samples before revising the whole enclosure. No dimensions have been measured on the existing prototype.
 
 **Availability:** 562 retrievals disagreed on stock status, so availability is unconfirmed. The 2046 page showed stock when reviewed; quantity is not reserved and can change. Recheck both supplier pages before ordering. No purchases were made.
+
+## Specific EQ selector candidate
+
+Reviewed 2026-11-13. **C&K 7103SYZBE** is a candidate for the EQ selector, not a confirmed installed part or a verified enclosure fit. A single-pole center-off selector can provide the same D3/D4 states as the previously described DPDT arrangement; the second pole is not needed by the firmware.
+
+| Item | Source-checked detail |
+| --- | --- |
+| Manufacturer part | 7103SYZBE; [Littelfuse/C&K 7000-series datasheet](https://www.littelfuse.com/assetdocs/littelfuse-ck-toggle-7000-series-datasheet?assetguid=fed01bc6-88d0-4bda-b896-13c98cf9e90e) |
+| Supplier lookup | [DigiKey CKN1025-ND](https://www.digikey.com/en/products/detail/c-k/7103SYZBE/6802), listed active; stock and delivery not confirmed |
+| Switching | Maintained SPDT ON-OFF-ON; model 7103 |
+| Contact option | B: gold, specified for low-level/dry circuits, maximum 0.4VA at 20V AC/DC |
+| Construction | S actuator, Y bushing, Z solder lugs, E epoxy seal |
+| Panel planning | Supplier lists 1/4-40 thread, 6.35mm circular cutout and 10.67mm actuator length; confirm actual drawing, panel thickness and clearance before cutting |
+
+The datasheet's page 3 identifies terminal 2 as common. With USB disconnected, wire:
+
+| Switch terminal | KB2040 connection |
+| --- | --- |
+| 2 (common) | GND |
+| 3 | D3 |
+| 1 | D4 |
+
+Position 1 connects 2–3 (high EQ), center opens both (mid EQ), and position 3 connects 2–1 (low EQ). Verify terminal markings and all three positions with a continuity meter; do not infer lug numbering from which way the lever points. Swap the two throw wires if the desired physical high/low direction is reversed. No 3.3V wire is connected to this selector.
+
+The low-level contact option suits the intended pull-up-to-ground signaling in principle. Electrical and mechanical operation still require testing on the build. Similar part numbers with momentary actions, silver power contacts or different bushings are not automatically interchangeable. This is a researched option, not a purchase instruction.

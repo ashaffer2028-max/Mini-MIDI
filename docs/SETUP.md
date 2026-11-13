@@ -7,7 +7,7 @@
 3. From the [CircuitPython library bundle](https://circuitpython.org/libraries), choose the bundle matching the installed CircuitPython major version. Copy its `adafruit_midi` directory into `CIRCUITPY/lib/`.
 4. Copy `firmware/code.py` and `firmware/midi_logic.py` to the root of `CIRCUITPY`. Both files are required. `board`, `analogio`, `digitalio` and `usb_midi` are provided by the firmware.
 5. Reconnect with a USB data cable. Check the serial console for import errors, then select the device in your host's MIDI settings.
-6. Use the README mapping table to MIDI-learn each control. Enable software pickup/soft takeover if supported.
+6. Use the [MIDI mapping table](MIDI_MAPPING.md) to MIDI-learn each control. Enable software pickup/soft takeover if supported.
 
 ## Revision 2 behavior
 
@@ -18,6 +18,8 @@ Each physical switch is accepted after its input remains unchanged for 20ms. D2,
 ADC oversampling, EMA smoothing and calibration defaults are inherited from revision 1. Each entry in `pot_ranges` starts at `PotRange(800, 64700)`, not a measured guarantee for every build. The three pots can now be calibrated independently. Smaller EMA alpha means more smoothing and more response delay. The 2ms sleep does not establish a measured 500Hz loop rate.
 
 ## Measure and enter per-pot bounds
+
+For repeated raw readings with per-window statistics, use the optional [bench diagnostic](../tools/README.md). Back up and restore your controller program as described there.
 
 1. Start revision 2 normally, then interrupt it with Ctrl-C in the CircuitPython serial console. MIDI transmission stops while measuring; the initialized `pot_deck_a`, `pot_deck_b` and `pot_crossfader` objects remain available in that session.
 2. With all pots at their low-output stops, run `print(pot_deck_a.value, pot_deck_b.value, pot_crossfader.value)` repeatedly. Record a range of settled readings for each pot, not one outlier. Repeat at the high-output stops. Raw values increasing in the wrong physical direction indicate reversed outer terminals; calibration does not reverse polarity.

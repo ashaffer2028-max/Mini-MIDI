@@ -5,6 +5,7 @@
 | Change | Location |
 | --- | --- |
 | CircuitPython application or MIDI logic | `firmware/` |
+| Temporary on-board diagnostics | `tools/` |
 | Desktop logic and application simulations | `tests/` |
 | Setup, wiring, MIDI mappings and research | `docs/` |
 | Documentation photos | `docs/images/` |
