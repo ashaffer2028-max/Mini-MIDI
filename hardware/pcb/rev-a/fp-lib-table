@@ -1,0 +1,1 @@
+(fp_lib_table (lib (name "MiniMIDI")(type "KiCad")(uri "${KIPRJMOD}/MiniMIDI.pretty")(options "")(descr "Mini-MIDI carrier footprint")))

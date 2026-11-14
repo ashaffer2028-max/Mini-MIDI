@@ -1,0 +1,241 @@
+{
+  "source_commit": "b4160dcf4385ef2cc30e9652489328321720ee4b",
+  "source_file": "Adafruit KB2040.brd",
+  "coordinates": "module top view, USB west, origin at module NW board corner",
+  "pins": [
+    {
+      "number": 1,
+      "source_header": "JP2",
+      "source_pad": 1,
+      "function": "D+",
+      "x_mm": 1.27,
+      "y_mm": 16.51,
+      "net": null
+    },
+    {
+      "number": 2,
+      "source_header": "JP2",
+      "source_pad": 2,
+      "function": "D0",
+      "x_mm": 3.81,
+      "y_mm": 16.51,
+      "net": null
+    },
+    {
+      "number": 3,
+      "source_header": "JP2",
+      "source_pad": 3,
+      "function": "D1",
+      "x_mm": 6.35,
+      "y_mm": 16.51,
+      "net": null
+    },
+    {
+      "number": 4,
+      "source_header": "JP2",
+      "source_pad": 4,
+      "function": "GND",
+      "x_mm": 8.89,
+      "y_mm": 16.51,
+      "net": "GND"
+    },
+    {
+      "number": 5,
+      "source_header": "JP2",
+      "source_pad": 5,
+      "function": "GND",
+      "x_mm": 11.43,
+      "y_mm": 16.51,
+      "net": "GND"
+    },
+    {
+      "number": 6,
+      "source_header": "JP2",
+      "source_pad": 6,
+      "function": "D2",
+      "x_mm": 13.97,
+      "y_mm": 16.51,
+      "net": "D2_FILTER"
+    },
+    {
+      "number": 7,
+      "source_header": "JP2",
+      "source_pad": 7,
+      "function": "D3",
+      "x_mm": 16.51,
+      "y_mm": 16.51,
+      "net": "D3_EQ_HIGH"
+    },
+    {
+      "number": 8,
+      "source_header": "JP2",
+      "source_pad": 8,
+      "function": "D4",
+      "x_mm": 19.05,
+      "y_mm": 16.51,
+      "net": "D4_EQ_LOW"
+    },
+    {
+      "number": 9,
+      "source_header": "JP2",
+      "source_pad": 9,
+      "function": "D5",
+      "x_mm": 21.59,
+      "y_mm": 16.51,
+      "net": "D5_SPLIT"
+    },
+    {
+      "number": 10,
+      "source_header": "JP2",
+      "source_pad": 10,
+      "function": "D6",
+      "x_mm": 24.13,
+      "y_mm": 16.51,
+      "net": "D6_EXTRA"
+    },
+    {
+      "number": 11,
+      "source_header": "JP2",
+      "source_pad": 11,
+      "function": "D7",
+      "x_mm": 26.67,
+      "y_mm": 16.51,
+      "net": null
+    },
+    {
+      "number": 12,
+      "source_header": "JP2",
+      "source_pad": 12,
+      "function": "D8",
+      "x_mm": 29.21,
+      "y_mm": 16.51,
+      "net": null
+    },
+    {
+      "number": 13,
+      "source_header": "JP2",
+      "source_pad": 13,
+      "function": "D9",
+      "x_mm": 31.75,
+      "y_mm": 16.51,
+      "net": null
+    },
+    {
+      "number": 14,
+      "source_header": "JP1",
+      "source_pad": 1,
+      "function": "D10",
+      "x_mm": 31.75,
+      "y_mm": 1.27,
+      "net": null
+    },
+    {
+      "number": 15,
+      "source_header": "JP1",
+      "source_pad": 2,
+      "function": "MOSI",
+      "x_mm": 29.21,
+      "y_mm": 1.27,
+      "net": null
+    },
+    {
+      "number": 16,
+      "source_header": "JP1",
+      "source_pad": 3,
+      "function": "MISO",
+      "x_mm": 26.67,
+      "y_mm": 1.27,
+      "net": null
+    },
+    {
+      "number": 17,
+      "source_header": "JP1",
+      "source_pad": 4,
+      "function": "SCLK",
+      "x_mm": 24.13,
+      "y_mm": 1.27,
+      "net": null
+    },
+    {
+      "number": 18,
+      "source_header": "JP1",
+      "source_pad": 5,
+      "function": "A0",
+      "x_mm": 21.59,
+      "y_mm": 1.27,
+      "net": "A0_DECK_A"
+    },
+    {
+      "number": 19,
+      "source_header": "JP1",
+      "source_pad": 6,
+      "function": "A1",
+      "x_mm": 19.05,
+      "y_mm": 1.27,
+      "net": "A1_DECK_B"
+    },
+    {
+      "number": 20,
+      "source_header": "JP1",
+      "source_pad": 7,
+      "function": "A2",
+      "x_mm": 16.51,
+      "y_mm": 1.27,
+      "net": "A2_XFADER"
+    },
+    {
+      "number": 21,
+      "source_header": "JP1",
+      "source_pad": 8,
+      "function": "A3",
+      "x_mm": 13.97,
+      "y_mm": 1.27,
+      "net": null
+    },
+    {
+      "number": 22,
+      "source_header": "JP1",
+      "source_pad": 9,
+      "function": "3.3V",
+      "x_mm": 11.43,
+      "y_mm": 1.27,
+      "net": "+3V3"
+    },
+    {
+      "number": 23,
+      "source_header": "JP1",
+      "source_pad": 10,
+      "function": "!RESET",
+      "x_mm": 8.89,
+      "y_mm": 1.27,
+      "net": null
+    },
+    {
+      "number": 24,
+      "source_header": "JP1",
+      "source_pad": 11,
+      "function": "GND",
+      "x_mm": 6.35,
+      "y_mm": 1.27,
+      "net": "GND"
+    },
+    {
+      "number": 25,
+      "source_header": "JP1",
+      "source_pad": 12,
+      "function": "RAW",
+      "x_mm": 3.81,
+      "y_mm": 1.27,
+      "net": null
+    },
+    {
+      "number": 26,
+      "source_header": "JP1",
+      "source_pad": 13,
+      "function": "D-",
+      "x_mm": 1.27,
+      "y_mm": 1.27,
+      "net": null
+    }
+  ]
+}
