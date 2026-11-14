@@ -9,6 +9,7 @@
 | Desktop logic and application simulations | `tests/` |
 | Setup, wiring, MIDI mappings and research | `docs/` |
 | Documentation photos | `docs/images/` |
+| PCB project, local footprints and design checks | `hardware/pcb/` |
 | Editable enclosure models and CAD exports | `hardware/cad/` |
 | Preserved old implementation snapshots | `archive/firmware/` |
 
