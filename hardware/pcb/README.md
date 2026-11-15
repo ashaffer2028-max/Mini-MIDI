@@ -6,7 +6,7 @@ This first model keeps the KB2040 module and puts three analog-control connector
 
 ![PCB component placement, top view](rev-a/previews/board-top.svg)
 
-The preview shows component pads and placement, not finished copper routing. Open the PCB in KiCad to see the unrouted connections.
+The preview shows component pads, placement and 18 pin-function silkscreen labels, not finished copper routing. Open the PCB in KiCad to see the unrouted connections.
 
 ## Open and edit
 
@@ -19,7 +19,7 @@ Open [mini-midi-carrier.kicad_pro](rev-a/mini-midi-carrier.kicad_pro) in **KiCad
 
 The module symbol abstracts the purchased board as passive connection pins. ERC does not analyze the module's internal regulator, USB circuit or RP2040. Carrier pad numbering is defined in the design notes and is not a physical KB2040 silkscreen numbering scheme.
 
-## Checks recorded on 2026-11-14
+## Checks recorded on 2026-11-15
 
 | Check | Result | What it establishes |
 | --- | --- | --- |
@@ -64,3 +64,11 @@ python3 -m unittest discover -s tests -p test_pcb_audit.py -v
 These integration tests accept the current design and deliberately corrupt a copied module coordinate and firmware pin assignment. Both mismatches must fail in normal and optimized Python modes. Without `pcbnew` or `kicad-cli`, these tests are skipped; a skipped test is not PCB validation.
 
 Reviewed 2026-11-15: [Python assertion behavior](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) explains why `assert` is unsuitable as a mandatory audit check when optimized mode is permitted. KiCad check commands are documented in the [official CLI reference](https://docs.kicad.org/9.0/en/cli/cli.html).
+
+## Header labels and harness checks
+
+The front silkscreen now marks every control header pin: J1/J2/J3 show GND, A0/A1/A2 and +3V3; J4/J6/J7 show their digital input and GND; J5 shows D3, GND and D4. Numbers identify the carrier header pins, not the physical toggle's lug numbers. Labels reduce ambiguity but do not polarize the unkeyed connectors.
+
+Before powering a completed assembly, verify each harness against the schematic with a continuity meter. The pot wiper must reach pin 2 and the other two pins must reach GND/+3V3. J5 pin 2 is common/GND; the switch itself must provide the specified center-off truth table. Do not use the label position to infer which way a cable housing is viewed. No harness or physical board has been tested here.
+
+The project footprint table explicitly references the standard KiCad 9 connector library through `KICAD9_FOOTPRINT_DIR`, so checks do not depend on a preconfigured global footprint table. Install the standard KiCad libraries if that variable's directory is unavailable. Reviewed 2026-11-15 against the [KiCad PCB library documentation](https://docs.kicad.org/9.0/en/pcbnew/pcbnew.html).

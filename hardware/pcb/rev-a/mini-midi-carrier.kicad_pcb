@@ -2295,6 +2295,39 @@
 			)
 		)
 	)
+	(gr_text "3 +3V3"
+		(at 94 70.08 0)
+		(layer "F.SilkS")
+		(uuid "1404df9b-305d-4d03-99ed-4fcbf1c50def")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "3 D4"
+		(at 84 33.08 0)
+		(layer "F.SilkS")
+		(uuid "17421d73-ede7-4c72-b8f7-ec026ed957ca")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "1 GND"
+		(at 94 51 0)
+		(layer "F.SilkS")
+		(uuid "1b99e6e4-4d9a-44b8-a2f2-c37e6aa521d3")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
 	(gr_text "J3 XFADER"
 		(at 99 61 0)
 		(layer "F.SilkS")
@@ -2303,6 +2336,28 @@
 			(font
 				(size 1 1)
 				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "2 GND"
+		(at 45 30.54 0)
+		(layer "F.SilkS")
+		(uuid "2759dc43-9161-4cf9-878e-e6cde65f82d8")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "2 GND"
+		(at 79 30.54 0)
+		(layer "F.SilkS")
+		(uuid "4224d654-2446-4176-bf96-5bc82c641212")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
 			)
 		)
 	)
@@ -2317,6 +2372,28 @@
 			)
 		)
 	)
+	(gr_text "3 +3V3"
+		(at 94 42.08 0)
+		(layer "F.SilkS")
+		(uuid "4bb673c9-71e2-4c05-b445-0e9779d5b78e")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "2 A1"
+		(at 94 53.54 0)
+		(layer "F.SilkS")
+		(uuid "4be1a5f3-45f9-40e1-8972-89c4e95c082d")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
 	(gr_text "Off-board controls / +3V3 only"
 		(at 69 70 0)
 		(layer "F.SilkS")
@@ -2328,6 +2405,28 @@
 			)
 		)
 	)
+	(gr_text "1 D5"
+		(at 62 28 0)
+		(layer "F.SilkS")
+		(uuid "57165e19-952d-4eae-b9f6-f2e7554b3315")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "1 D2"
+		(at 45 28 0)
+		(layer "F.SilkS")
+		(uuid "5d724afa-1625-4b88-afb9-21feb5a48132")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
 	(gr_text "J1 DECK A"
 		(at 99 33 0)
 		(layer "F.SilkS")
@@ -2336,6 +2435,17 @@
 			(font
 				(size 1 1)
 				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "2 A0"
+		(at 94 39.54 0)
+		(layer "F.SilkS")
+		(uuid "719f5d9b-f137-4060-9b27-76116a3baca4")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
 			)
 		)
 	)
@@ -2372,6 +2482,17 @@
 			)
 		)
 	)
+	(gr_text "1 D6"
+		(at 79 28 0)
+		(layer "F.SilkS")
+		(uuid "a2ecb080-a1e9-475c-8f69-319700800209")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
 	(gr_text "J2 DECK B"
 		(at 99 47 0)
 		(layer "F.SilkS")
@@ -2380,6 +2501,28 @@
 			(font
 				(size 1 1)
 				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "1 GND"
+		(at 94 65 0)
+		(layer "F.SilkS")
+		(uuid "b845d51a-0e78-4e67-80a6-959408ba613e")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "1 D3"
+		(at 84 28 0)
+		(layer "F.SilkS")
+		(uuid "bae13bce-72bb-461a-b303-3d9e094d8275")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
 			)
 		)
 	)
@@ -2394,6 +2537,28 @@
 			)
 		)
 	)
+	(gr_text "1 GND"
+		(at 94 37 0)
+		(layer "F.SilkS")
+		(uuid "cab87736-9a63-40d9-adcb-aa033d4a7072")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "2 GND"
+		(at 62 30.54 0)
+		(layer "F.SilkS")
+		(uuid "cd41364c-b9a0-426a-afdb-643cdedb68c5")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
 	(gr_text "90 x 60 mm provisional outline / NOT FOR FABRICATION"
 		(at 65 76 0)
 		(layer "F.SilkS")
@@ -2402,6 +2567,39 @@
 			(font
 				(size 1.05 1.05)
 				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "2 A2"
+		(at 94 67.54 0)
+		(layer "F.SilkS")
+		(uuid "eb7d7554-22ec-46d2-bc82-74393bb57e5a")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "3 +3V3"
+		(at 94 56.08 0)
+		(layer "F.SilkS")
+		(uuid "f1437a18-5fda-40a4-a44e-40b123dfa051")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
+			)
+		)
+	)
+	(gr_text "2 GND"
+		(at 84 30.54 0)
+		(layer "F.SilkS")
+		(uuid "ffb316ae-f199-4fef-81c0-486b14c682d6")
+		(effects
+			(font
+				(size 0.85 0.85)
+				(thickness 0.13)
 			)
 		)
 	)
