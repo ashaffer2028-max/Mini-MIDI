@@ -41,7 +41,7 @@ kicad-cli pcb drc --schematic-parity --format json --units mm -o hardware/pcb/re
 python3 hardware/pcb/rev-a/check_connectivity.py
 ```
 
-Use the Python interpreter supplied with KiCad or one with `pcbnew` installed (the recorded audit used `/usr/bin/python3`). The audit generates a fresh temporary schematic netlist; it checks logical membership, not trace completion. Inspect report contents: the CLI commands above can produce reports while returning success even with reported violations.
+Use the Python interpreter supplied with KiCad or one with `pcbnew` installed (the recorded audit used `/usr/bin/python3`). The audit generates a fresh temporary schematic netlist; it checks logical membership, not trace completion. Mismatches exit nonzero even under `python3 -O`; validation uses explicit checks rather than removable assertions. `--project-dir` and `--repo-root` let regression tests check temporary copies without touching the working design. Inspect report contents: the CLI commands above can produce reports while returning success even with reported violations.
 
 ## Before routing and fabrication
 
@@ -52,3 +52,15 @@ Use the Python interpreter supplied with KiCad or one with `pcbnew` installed (t
 5. Run ERC, DRC including unconnected items and schematic parity again. Review clearances, fabrication rules, silkscreen, actual part drawings and assembly access before generating manufacturing outputs.
 
 No boards or parts have been ordered, and the active firmware has not been modified by this contribution.
+
+## Audit regression checks
+
+With KiCad's Python interpreter, run from the repository root:
+
+```sh
+python3 -m unittest discover -s tests -p test_pcb_audit.py -v
+```
+
+These integration tests accept the current design and deliberately corrupt a copied module coordinate and firmware pin assignment. Both mismatches must fail in normal and optimized Python modes. Without `pcbnew` or `kicad-cli`, these tests are skipped; a skipped test is not PCB validation.
+
+Reviewed 2026-11-15: [Python assertion behavior](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement) explains why `assert` is unsuitable as a mandatory audit check when optimized mode is permitted. KiCad check commands are documented in the [official CLI reference](https://docs.kicad.org/9.0/en/cli/cli.html).
