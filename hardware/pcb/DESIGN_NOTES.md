@@ -38,7 +38,7 @@ Controls remain panel-mounted and wired to generic 2.54mm headers. This avoids g
 | Existing KB2040 module | 1 | [Adafruit 5302](https://www.adafruit.com/product/5302) | Confirm purchased revision against pinned board source |
 | 1×13, 2.54mm socket row | 2 | [Samtec SSQ-113-03-G-S at DigiKey](https://www.digikey.com/en/products/detail/samtec-inc/SSQ-113-03-G-S/1111548) | Candidate only: long posts/height, hole fit and module mating need drawing/sample review |
 | 1×3 control header | 4 | [Samtec TSW-103-07-G-S at DigiKey](https://www.digikey.com/en/products/detail/samtec-inc/TSW-103-07-G-S/1101324) | Candidate only: compare exact drawing to generic KiCad pads and choose mating harness |
-| 1×2 control header | 3 | Generic KiCad geometry; no SKU selected | Select exact header and mating connector before release |
+| 1×2 control header | 3 | [Samtec TSW-102-07-G-S candidate](CONNECTOR_REVIEW.md) | Drawing/hole fit and mating harness remain unconfirmed |
 
 The supplier listings confirm the first socket's 13 positions and the header's three positions at 2.54mm pitch. They do not certify this layout. Prices, stock and delivery are intentionally not promised; recheck at ordering. The unkeyed headers can be miswired; consider polarized connectors after the harness and space requirements are known.
 
@@ -49,3 +49,7 @@ The supplier listings confirm the first socket's 13 positions and the header's t
 - [KiCad 9 CLI documentation](https://docs.kicad.org/9.0/en/cli/cli.html): ERC, DRC, netlist and SVG commands. Installed editor/CLI version: 9.0.2.
 - Generic connector footprints: installed KiCad `Connector_PinHeader_2.54mm` library, attributed to the KiCad library contributors; [library license and design exception](https://www.kicad.org/libraries/license/).
 - Supplier links in the candidate table were reviewed on 2026-11-14. No stock reservation or purchase was made.
+
+## Follow-up connector review
+
+The [2026-11-16 connector review](CONNECTOR_REVIEW.md) adds an exact 1×2 header candidate, manufacturer drawing links, the nominal pin/drill comparison and a shorter-tail module socket alternative. It records stock evidence separately from compatibility and leaves the module mating stack unresolved. No native footprint or installed hardware has been changed.
