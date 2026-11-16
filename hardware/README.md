@@ -10,3 +10,6 @@
 The ZIP is preserved as supplied. Component fit, panel dimensions and print readiness have not been verified. Check the selected parts and print a fit coupon before committing to an enclosure.
 
 Put future CAD source files and exports in `hardware/cad/`, using names that identify the part and revision. Keep original editable source files alongside exports when available. Initial PCB files and their research notes live in `hardware/pcb/`; their provisional outline has not been fitted to this enclosure.
+
+- [PCB paper-fit sheet](pcb/rev-a/previews/fit-template.svg) — print at actual size and verify both scale bars; provisional placement only.
+- [Connector fit review](pcb/CONNECTOR_REVIEW.md) — exact header candidates, source drawings and unresolved module/socket stack.

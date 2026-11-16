@@ -72,3 +72,19 @@ The front silkscreen now marks every control header pin: J1/J2/J3 show GND, A0/A
 Before powering a completed assembly, verify each harness against the schematic with a continuity meter. The pot wiper must reach pin 2 and the other two pins must reach GND/+3V3. J5 pin 2 is common/GND; the switch itself must provide the specified center-off truth table. Do not use the label position to infer which way a cable housing is viewed. No harness or physical board has been tested here.
 
 The project footprint table explicitly references the standard KiCad 9 connector library through `KICAD9_FOOTPRINT_DIR`, so checks do not depend on a preconfigured global footprint table. Install the standard KiCad libraries if that variable's directory is unavailable. Reviewed 2026-11-15 against the [KiCad PCB library documentation](https://docs.kicad.org/9.0/en/pcbnew/pcbnew.html).
+
+## Paper-fit template and connector review (2026-11-16)
+
+Open the [true-scale fit sheet](rev-a/previews/fit-template.svg) directly and print at **100% / actual size**, with fit-to-page disabled. GitHub's on-screen preview is not a scale reference. Verify the horizontal **100mm** and vertical **50mm** bars using a ruler; reject a print with either axis scaled incorrectly. This top view is not mirrored.
+
+The sheet derives its provisional outline, all 44 drill centers/diameters and module F.Fab outline from the native board. It omits socket/header bodies, USB plug overhang, cable bends and mounting holes. The dashed module boundary is the bare PCB outline, not a clearance envelope. Paper fitting does not validate physical assembly or electrical operation. Follow the [connector fit review](CONNECTOR_REVIEW.md) for candidate parts, source drawings and unresolved stack decisions.
+
+Regenerate after moving parts or editing the outline:
+
+```sh
+python3 hardware/pcb/rev-a/export_fit_template.py
+```
+
+Use KiCad's Python with `pcbnew`. The [exporter](rev-a/export_fit_template.py) records the source PCB SHA-256 in SVG metadata, uses millimeter page dimensions with a matching viewBox, and rejects unsupported outlines or a board too large for this sheet. No native design, pin assignment, routing or check report was changed by this paper template.
+
+Desktop verification on 2026-11-16: all 44 SVG pad centers and drill radii match the native PCB, and page units/scale bars were checked numerically. The rendered sheet was visually inspected. All 26 existing desktop tests pass with KiCad Python. Fresh KiCad 9.0.2 checks report 0 ERC violations, 0 geometric DRC violations, 20 unconnected items and 0 schematic parity issues. These checks do not verify printer scaling or actual part/enclosure fit.

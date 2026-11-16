@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="190mm" height="165mm" viewBox="0 0 190 165">
+  <title>Mini-MIDI paper-fit template, top view</title>
+  <metadata>Source PCB SHA-256: c06f010ed98447b0f40cc36791521a76352ee1bb980e0fac7eb0b0643df7041e</metadata>
+  <text x="15" y="12" fill="black" font-family="sans-serif" font-size="4">Mini-MIDI carrier | PAPER FIT ONLY</text>
+  <text x="15" y="19" fill="black" font-family="sans-serif" font-size="3">Top view; print at 100% / actual size. Disable fit-to-page.</text>
+  <text x="15" y="25" fill="black" font-family="sans-serif" font-size="3">Measure BOTH scale bars before comparing parts. No drilling or fabrication.</text>
+  <text x="30" y="35" fill="black" font-family="sans-serif" font-size="3">Provisional outline: 90 x 60 mm</text>
+  <line x1="120.0" y1="40.0" x2="120.0" y2="100.0" stroke="black" stroke-width=".2" />
+  <line x1="30.0" y1="100.0" x2="30.0" y2="40.0" stroke="black" stroke-width=".2" />
+  <line x1="30.0" y1="40.0" x2="120.0" y2="40.0" stroke="black" stroke-width=".2" />
+  <line x1="120.0" y1="100.0" x2="30.0" y2="100.0" stroke="black" stroke-width=".2" />
+  <text x="112.5" y="57.0" fill="black" font-family="sans-serif" font-size="2.4">J1</text>
+  <circle cx="110.0000" cy="57.0000" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J1" data-pad="1" />
+  <text x="107.0" y="57.6" fill="black" font-family="sans-serif" font-size="1.7">1</text>
+  <circle cx="110.0000" cy="59.5400" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J1" data-pad="2" />
+  <text x="107.0" y="60.14" fill="black" font-family="sans-serif" font-size="1.7">2</text>
+  <circle cx="110.0000" cy="62.0800" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J1" data-pad="3" />
+  <text x="107.0" y="62.68" fill="black" font-family="sans-serif" font-size="1.7">3</text>
+  <text x="112.5" y="71.0" fill="black" font-family="sans-serif" font-size="2.4">J2</text>
+  <circle cx="110.0000" cy="71.0000" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J2" data-pad="1" />
+  <text x="107.0" y="71.6" fill="black" font-family="sans-serif" font-size="1.7">1</text>
+  <circle cx="110.0000" cy="73.5400" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J2" data-pad="2" />
+  <text x="107.0" y="74.13999999999999" fill="black" font-family="sans-serif" font-size="1.7">2</text>
+  <circle cx="110.0000" cy="76.0800" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J2" data-pad="3" />
+  <text x="107.0" y="76.67999999999999" fill="black" font-family="sans-serif" font-size="1.7">3</text>
+  <text x="112.5" y="85.0" fill="black" font-family="sans-serif" font-size="2.4">J3</text>
+  <circle cx="110.0000" cy="85.0000" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J3" data-pad="1" />
+  <text x="107.0" y="85.6" fill="black" font-family="sans-serif" font-size="1.7">1</text>
+  <circle cx="110.0000" cy="87.5400" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J3" data-pad="2" />
+  <text x="107.0" y="88.13999999999999" fill="black" font-family="sans-serif" font-size="1.7">2</text>
+  <circle cx="110.0000" cy="90.0800" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J3" data-pad="3" />
+  <text x="107.0" y="90.67999999999999" fill="black" font-family="sans-serif" font-size="1.7">3</text>
+  <text x="52.5" y="48.0" fill="black" font-family="sans-serif" font-size="2.4">J4</text>
+  <circle cx="50.0000" cy="48.0000" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J4" data-pad="1" />
+  <text x="47.0" y="48.6" fill="black" font-family="sans-serif" font-size="1.7">1</text>
+  <circle cx="50.0000" cy="50.5400" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J4" data-pad="2" />
+  <text x="47.0" y="51.14" fill="black" font-family="sans-serif" font-size="1.7">2</text>
+  <text x="102.5" y="48.0" fill="black" font-family="sans-serif" font-size="2.4">J5</text>
+  <circle cx="100.0000" cy="48.0000" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J5" data-pad="1" />
+  <text x="97.0" y="48.6" fill="black" font-family="sans-serif" font-size="1.7">1</text>
+  <circle cx="100.0000" cy="50.5400" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J5" data-pad="2" />
+  <text x="97.0" y="51.14" fill="black" font-family="sans-serif" font-size="1.7">2</text>
+  <circle cx="100.0000" cy="53.0800" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J5" data-pad="3" />
+  <text x="97.0" y="53.68" fill="black" font-family="sans-serif" font-size="1.7">3</text>
+  <text x="69.5" y="48.0" fill="black" font-family="sans-serif" font-size="2.4">J6</text>
+  <circle cx="67.0000" cy="48.0000" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J6" data-pad="1" />
+  <text x="64.0" y="48.6" fill="black" font-family="sans-serif" font-size="1.7">1</text>
+  <circle cx="67.0000" cy="50.5400" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J6" data-pad="2" />
+  <text x="64.0" y="51.14" fill="black" font-family="sans-serif" font-size="1.7">2</text>
+  <text x="86.5" y="48.0" fill="black" font-family="sans-serif" font-size="2.4">J7</text>
+  <circle cx="84.0000" cy="48.0000" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J7" data-pad="1" />
+  <text x="81.0" y="48.6" fill="black" font-family="sans-serif" font-size="1.7">1</text>
+  <circle cx="84.0000" cy="50.5400" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="J7" data-pad="2" />
+  <text x="81.0" y="51.14" fill="black" font-family="sans-serif" font-size="1.7">2</text>
+  <line x1="34.0" y1="63.0" x2="67.02000000000001" y2="63.0" stroke="black" stroke-width=".2" stroke-dasharray="1,1" />
+  <line x1="34.0" y1="80.78" x2="34.0" y2="63.0" stroke="black" stroke-width=".2" stroke-dasharray="1,1" />
+  <line x1="67.02000000000001" y1="63.0" x2="67.02000000000001" y2="80.78" stroke="black" stroke-width=".2" stroke-dasharray="1,1" />
+  <line x1="67.02000000000001" y1="80.78" x2="34.0" y2="80.78" stroke="black" stroke-width=".2" stroke-dasharray="1,1" />
+  <text x="38.0" y="71.0" fill="black" font-family="sans-serif" font-size="2.4">U1 KB2040</text>
+  <text x="38.0" y="74.5" fill="black" font-family="sans-serif" font-size="2.4">USB faces left</text>
+  <circle cx="35.2700" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="1" />
+  <text x="34.669999999999995" y="78.30999999999999" fill="black" font-family="sans-serif" font-size="1.7">1</text>
+  <circle cx="37.8100" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="2" />
+  <circle cx="40.3500" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="3" />
+  <circle cx="42.8900" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="4" />
+  <circle cx="45.4300" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="5" />
+  <circle cx="47.9700" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="6" />
+  <circle cx="50.5100" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="7" />
+  <circle cx="53.0500" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="8" />
+  <circle cx="55.5900" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="9" />
+  <circle cx="58.1300" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="10" />
+  <circle cx="60.6700" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="11" />
+  <circle cx="63.2100" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="12" />
+  <circle cx="65.7500" cy="79.5100" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="13" />
+  <text x="65.15" y="78.30999999999999" fill="black" font-family="sans-serif" font-size="1.7">13</text>
+  <circle cx="65.7500" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="14" />
+  <text x="65.15" y="63.06999999999999" fill="black" font-family="sans-serif" font-size="1.7">14</text>
+  <circle cx="63.2100" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="15" />
+  <circle cx="60.6700" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="16" />
+  <circle cx="58.1300" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="17" />
+  <circle cx="55.5900" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="18" />
+  <circle cx="53.0500" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="19" />
+  <circle cx="50.5100" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="20" />
+  <circle cx="47.9700" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="21" />
+  <circle cx="45.4300" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="22" />
+  <circle cx="42.8900" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="23" />
+  <circle cx="40.3500" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="24" />
+  <circle cx="37.8100" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="25" />
+  <circle cx="35.2700" cy="64.2700" r="0.5000" fill="white" stroke="black" stroke-width=".15" data-ref="U1" data-pad="26" />
+  <text x="34.669999999999995" y="63.06999999999999" fill="black" font-family="sans-serif" font-size="1.7">26</text>
+  <text x="30" y="111" fill="black" font-family="sans-serif" font-size="2.7">Circles = draft drill diameters; dashed box = module PCB outline.</text>
+  <text x="30" y="116" fill="black" font-family="sans-serif" font-size="2.7">Connector bodies, USB plug, cable bends and mounting points are NOT modeled.</text>
+  <line x1="30" y1="130" x2="130" y2="130" stroke="black" stroke-width=".2" id="scale-x-100mm" />
+  <line x1="30" y1="128" x2="30" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="40" y1="128" x2="40" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="50" y1="128" x2="50" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="60" y1="128" x2="60" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="70" y1="128" x2="70" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="80" y1="128" x2="80" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="90" y1="128" x2="90" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="100" y1="128" x2="100" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="110" y1="128" x2="110" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="120" y1="128" x2="120" y2="132" stroke="black" stroke-width=".2" />
+  <line x1="130" y1="128" x2="130" y2="132" stroke="black" stroke-width=".2" />
+  <text x="30" y="138" fill="black" font-family="sans-serif" font-size="3">100 mm horizontal scale</text>
+  <line x1="160" y1="45" x2="160" y2="95" stroke="black" stroke-width=".2" id="scale-y-50mm" />
+  <line x1="158" y1="45" x2="162" y2="45" stroke="black" stroke-width=".2" />
+  <line x1="158" y1="55" x2="162" y2="55" stroke="black" stroke-width=".2" />
+  <line x1="158" y1="65" x2="162" y2="65" stroke="black" stroke-width=".2" />
+  <line x1="158" y1="75" x2="162" y2="75" stroke="black" stroke-width=".2" />
+  <line x1="158" y1="85" x2="162" y2="85" stroke="black" stroke-width=".2" />
+  <line x1="158" y1="95" x2="162" y2="95" stroke="black" stroke-width=".2" />
+  <text x="146" y="103" fill="black" font-family="sans-serif" font-size="2.5">50 mm vertical</text>
+  <text x="15" y="150" fill="black" font-family="sans-serif" font-size="2.8">UNROUTED DRAFT | No physical fit or electrical test has been performed.</text>
+  <text x="15" y="156" fill="black" font-family="sans-serif" font-size="2.8">44 pad centers exported from the native PCB; regenerate after placement edits.</text>
+</svg>
