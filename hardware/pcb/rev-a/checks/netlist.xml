@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="E">
+  <design>
+    <source>hardware/pcb/rev-a/mini-midi-carrier.kicad_sch</source>
+    <date>2026-11-14T08:55:45-0800</date>
+    <tool>Eeschema 9.0.2+dfsg-1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title>Mini-MIDI KB2040 carrier - Rev A draft</title>
+        <company/>
+        <rev>A</rev>
+        <date>2026-11-14</date>
+        <source>mini-midi-carrier.kicad_sch</source>
+        <comment number="1" value="Off-board controls; footprints and enclosure fit require physical review"/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+        <comment number="5" value=""/>
+        <comment number="6" value=""/>
+        <comment number="7" value=""/>
+        <comment number="8" value=""/>
+        <comment number="9" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="J1">
+      <value>DECK A</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="MiniMIDI" part="Header3" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="mini-midi-carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f9dbefc2-fd75-5b54-9ef6-7697959a795a</tstamps>
+    </comp>
+    <comp ref="J2">
+      <value>DECK B</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="MiniMIDI" part="Header3" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="mini-midi-carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>84d3ecf9-2d28-5870-b6db-93d5553790e6</tstamps>
+    </comp>
+    <comp ref="J3">
+      <value>XFADER</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="MiniMIDI" part="Header3" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="mini-midi-carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>42b2c7d8-84b6-5983-a83b-d027c97104d2</tstamps>
+    </comp>
+    <comp ref="J4">
+      <value>FILTER</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="MiniMIDI" part="Header2" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="mini-midi-carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>5f603d90-66d8-5202-86e1-6fe25f3f1b8e</tstamps>
+    </comp>
+    <comp ref="J5">
+      <value>EQ SELECT</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="MiniMIDI" part="Header3" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="mini-midi-carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>04953fdf-cc54-5996-957f-caa389fc2772</tstamps>
+    </comp>
+    <comp ref="J6">
+      <value>SPLIT</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="MiniMIDI" part="Header2" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="mini-midi-carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>506aa802-8bcd-5a45-b54f-507d2136806e</tstamps>
+    </comp>
+    <comp ref="J7">
+      <value>EXTRA</value>
+      <footprint>Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</footprint>
+      <fields>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="MiniMIDI" part="Header2" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="mini-midi-carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>93cd5990-432f-5bfe-ba2b-2f631dc0b9e6</tstamps>
+    </comp>
+    <comp ref="U1">
+      <value>KB2040 socketed</value>
+      <footprint>MiniMIDI:KB2040_Socketed</footprint>
+      <fields>
+        <field name="Footprint">MiniMIDI:KB2040_Socketed</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <libsource lib="MiniMIDI" part="KB2040_Module" description=""/>
+      <property name="Sheetname" value=""/>
+      <property name="Sheetfile" value="mini-midi-carrier.kicad_sch"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>ea6cdd3e-b119-5741-bc9d-bbce398f18de</tstamps>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="MiniMIDI" part="Header2">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Header2</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MiniMIDI" part="Header3">
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Header3</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MiniMIDI" part="KB2040_Module">
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">KB2040_Module</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
+      <pins>
+        <pin num="1" name="D+" type="passive"/>
+        <pin num="2" name="D0" type="passive"/>
+        <pin num="3" name="D1" type="passive"/>
+        <pin num="4" name="GND" type="passive"/>
+        <pin num="5" name="GND" type="passive"/>
+        <pin num="6" name="D2" type="passive"/>
+        <pin num="7" name="D3" type="passive"/>
+        <pin num="8" name="D4" type="passive"/>
+        <pin num="9" name="D5" type="passive"/>
+        <pin num="10" name="D6" type="passive"/>
+        <pin num="11" name="D7" type="passive"/>
+        <pin num="12" name="D8" type="passive"/>
+        <pin num="13" name="D9" type="passive"/>
+        <pin num="14" name="D10" type="passive"/>
+        <pin num="15" name="MOSI" type="passive"/>
+        <pin num="16" name="MISO" type="passive"/>
+        <pin num="17" name="SCLK" type="passive"/>
+        <pin num="18" name="A0" type="passive"/>
+        <pin num="19" name="A1" type="passive"/>
+        <pin num="20" name="A2" type="passive"/>
+        <pin num="21" name="A3" type="passive"/>
+        <pin num="22" name="3.3V" type="passive"/>
+        <pin num="23" name="!RESET" type="passive"/>
+        <pin num="24" name="GND" type="passive"/>
+        <pin num="25" name="RAW" type="passive"/>
+        <pin num="26" name="D-" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="MiniMIDI">
+      <uri>hardware/pcb/rev-a/MiniMIDI.kicad_sym</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="/+3V3" class="Default">
+      <node ref="J1" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="J2" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="J3" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="U1" pin="22" pinfunction="3.3V" pintype="passive"/>
+    </net>
+    <net code="2" name="/A0_DECK_A" class="Default">
+      <node ref="J1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="18" pinfunction="A0" pintype="passive"/>
+    </net>
+    <net code="3" name="/A1_DECK_B" class="Default">
+      <node ref="J2" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="19" pinfunction="A1" pintype="passive"/>
+    </net>
+    <net code="4" name="/A2_XFADER" class="Default">
+      <node ref="J3" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="20" pinfunction="A2" pintype="passive"/>
+    </net>
+    <net code="5" name="/D2_FILTER" class="Default">
+      <node ref="J4" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="6" pinfunction="D2" pintype="passive"/>
+    </net>
+    <net code="6" name="/D3_EQ_HIGH" class="Default">
+      <node ref="J5" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="7" pinfunction="D3" pintype="passive"/>
+    </net>
+    <net code="7" name="/D4_EQ_LOW" class="Default">
+      <node ref="J5" pin="3" pinfunction="3" pintype="passive"/>
+      <node ref="U1" pin="8" pinfunction="D4" pintype="passive"/>
+    </net>
+    <net code="8" name="/D5_SPLIT" class="Default">
+      <node ref="J6" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="9" pinfunction="D5" pintype="passive"/>
+    </net>
+    <net code="9" name="/D6_EXTRA" class="Default">
+      <node ref="J7" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="D6" pintype="passive"/>
+    </net>
+    <net code="10" name="/GND" class="Default">
+      <node ref="J1" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="J2" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="J3" pin="1" pinfunction="1" pintype="passive"/>
+      <node ref="J4" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="J5" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="J6" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="J7" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="24" pinfunction="GND" pintype="passive"/>
+      <node ref="U1" pin="4" pinfunction="GND" pintype="passive"/>
+      <node ref="U1" pin="5" pinfunction="GND" pintype="passive"/>
+    </net>
+    <net code="11" name="unconnected-(U1-!RESET-Pad23)" class="Default">
+      <node ref="U1" pin="23" pinfunction="!RESET" pintype="passive+no_connect"/>
+    </net>
+    <net code="12" name="unconnected-(U1-A3-Pad21)" class="Default">
+      <node ref="U1" pin="21" pinfunction="A3" pintype="passive+no_connect"/>
+    </net>
+    <net code="13" name="unconnected-(U1-D+-Pad1)" class="Default">
+      <node ref="U1" pin="1" pinfunction="D+" pintype="passive+no_connect"/>
+    </net>
+    <net code="14" name="unconnected-(U1-D--Pad26)" class="Default">
+      <node ref="U1" pin="26" pinfunction="D-" pintype="passive+no_connect"/>
+    </net>
+    <net code="15" name="unconnected-(U1-D0-Pad2)" class="Default">
+      <node ref="U1" pin="2" pinfunction="D0" pintype="passive+no_connect"/>
+    </net>
+    <net code="16" name="unconnected-(U1-D1-Pad3)" class="Default">
+      <node ref="U1" pin="3" pinfunction="D1" pintype="passive+no_connect"/>
+    </net>
+    <net code="17" name="unconnected-(U1-D7-Pad11)" class="Default">
+      <node ref="U1" pin="11" pinfunction="D7" pintype="passive+no_connect"/>
+    </net>
+    <net code="18" name="unconnected-(U1-D8-Pad12)" class="Default">
+      <node ref="U1" pin="12" pinfunction="D8" pintype="passive+no_connect"/>
+    </net>
+    <net code="19" name="unconnected-(U1-D9-Pad13)" class="Default">
+      <node ref="U1" pin="13" pinfunction="D9" pintype="passive+no_connect"/>
+    </net>
+    <net code="20" name="unconnected-(U1-D10-Pad14)" class="Default">
+      <node ref="U1" pin="14" pinfunction="D10" pintype="passive+no_connect"/>
+    </net>
+    <net code="21" name="unconnected-(U1-MISO-Pad16)" class="Default">
+      <node ref="U1" pin="16" pinfunction="MISO" pintype="passive+no_connect"/>
+    </net>
+    <net code="22" name="unconnected-(U1-MOSI-Pad15)" class="Default">
+      <node ref="U1" pin="15" pinfunction="MOSI" pintype="passive+no_connect"/>
+    </net>
+    <net code="23" name="unconnected-(U1-RAW-Pad25)" class="Default">
+      <node ref="U1" pin="25" pinfunction="RAW" pintype="passive+no_connect"/>
+    </net>
+    <net code="24" name="unconnected-(U1-SCLK-Pad17)" class="Default">
+      <node ref="U1" pin="17" pinfunction="SCLK" pintype="passive+no_connect"/>
+    </net>
+  </nets>
+</export>

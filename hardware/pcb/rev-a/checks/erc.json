@@ -1,0 +1,14 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-15T08:55:30-0800",
+    "kicad_version": "9.0.2",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/f5b15e3a-d641-5d09-980d-73ca6000ee9f",
+            "violations": []
+        }
+    ],
+    "source": "mini-midi-carrier.kicad_sch"
+}
