@@ -6,6 +6,7 @@ import time
 
 SAMPLES_PER_WINDOW = 100
 SAMPLE_DELAY = 0.005
+CSV_OUTPUT = False  # Set True before copying to CIRCUITPY for serial capture.
 
 
 def read_window(pots, switches, samples=SAMPLES_PER_WINDOW, delay=SAMPLE_DELAY):
@@ -30,6 +31,18 @@ def read_window(pots, switches, samples=SAMPLES_PER_WINDOW, delay=SAMPLE_DELAY):
     return stats, tuple(pin.value for pin in switches)
 
 
+def emit_window(stats, levels, csv_output=False):
+    """Print one window; CSV mode uses comment lines for digital snapshots."""
+    for name, (low, high, mean) in zip(("A0", "A1", "A2"), stats):
+        if csv_output:
+            print("{},{},{},{:.1f},{}".format(name, low, high, mean, high - low))
+        else:
+            print("{} min={} max={} mean={:.1f} span={}".format(
+                name, low, high, mean, high - low))
+    prefix = "# " if csv_output else ""
+    print(prefix + "Raw switch levels D2 D3 D4 D5 D6:", levels)
+
+
 def main():
     # Lazy imports let desktop tests exercise read_window without board modules.
     import analogio
@@ -49,14 +62,14 @@ def main():
             resources.append(pin)
             pin.switch_to_input(pull=digitalio.Pull.UP)
             switches.append(pin)
-        print("Bench mode: no MIDI. Hold pots still for each measurement window.")
-        print("Pot labels: A0=deck_a, A1=deck_b, A2=crossfader; switches: 0=grounded/on.")
+        prefix = "# " if CSV_OUTPUT else ""
+        print(prefix + "Bench mode: no MIDI. Hold pots still for each measurement window.")
+        print(prefix + "Pot labels: A0=deck_a, A1=deck_b, A2=crossfader; switches: 0=grounded/on.")
+        if CSV_OUTPUT:
+            print("control,min,max,mean,span")
         while True:
             stats, levels = read_window(pots, switches)
-            for name, (low, high, mean) in zip(("A0", "A1", "A2"), stats):
-                print("{} min={} max={} mean={:.1f} span={}".format(
-                    name, low, high, mean, high - low))
-            print("Raw switch levels D2 D3 D4 D5 D6:", levels)
+            emit_window(stats, levels, CSV_OUTPUT)
     finally:
         for pin in reversed(resources):
             pin.deinit()

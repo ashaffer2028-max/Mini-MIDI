@@ -34,6 +34,16 @@ class DiagnosticTests(unittest.TestCase):
             self.assertEqual(stats, [(900, 900, 900), (800, 800, 800)])
             self.assertEqual(levels, (False, True))
 
+    def test_csv_output_has_fixed_columns_and_comments_for_switches(self):
+        output = io.StringIO()
+        with contextlib.redirect_stdout(output):
+            diagnostic.emit_window([(1, 3, 2), (10, 12, 11), (0, 65535, 12.34)],
+                                   (True, False, True, True, False), True)
+        lines = output.getvalue().splitlines()
+        self.assertEqual(lines[:3], ['A0,1,3,2.0,2', 'A1,10,12,11.0,2',
+                                     'A2,0,65535,12.3,65535'])
+        self.assertTrue(lines[3].startswith('# Raw switch levels'))
+
     def test_empty_window_is_rejected(self):
         with self.assertRaises(ValueError):
             diagnostic.read_window([], [], samples=0)

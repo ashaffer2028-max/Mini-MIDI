@@ -15,3 +15,8 @@ The default window takes 100 samples, sleeping 5ms after each set of pot reads. 
 This tool has desktop tests with simulated inputs. **It has not been run on the physical prototype.** No measurements are supplied as if they came from your board.
 
 API references reviewed 2026-11-13: [analogio](https://docs.circuitpython.org/en/stable/shared-bindings/analogio/) and [digitalio](https://docs.circuitpython.org/en/stable/shared-bindings/digitalio/). The tool uses `AnalogIn.value`, input pull-ups, and `deinit()` to release resources. USB MIDI may remain enumerated by CircuitPython, but this program sends no MIDI messages.
+
+## Optional CSV serial capture
+
+Set `CSV_OUTPUT = True` near the top of `inspect_controls.py` before copying it to the board. Text output remains the default. CSV mode prints `control,min,max,mean,span` and one A0/A1/A2 row per window. Startup notes and final switch snapshots start with `#`; no CSV library or filesystem writes are needed on the board. Use your serial terminal's capture/log feature on the computer. This is still a temporary no-MIDI diagnostic, not the controller application.
+
