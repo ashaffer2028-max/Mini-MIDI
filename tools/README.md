@@ -20,3 +20,4 @@ API references reviewed 2026-11-13: [analogio](https://docs.circuitpython.org/en
 
 Set `CSV_OUTPUT = True` near the top of `inspect_controls.py` before copying it to the board. Text output remains the default. CSV mode prints `control,min,max,mean,span` and one A0/A1/A2 row per window. Startup notes and final switch snapshots start with `#`; no CSV library or filesystem writes are needed on the board. Use your serial terminal's capture/log feature on the computer. This is still a temporary no-MIDI diagnostic, not the controller application.
 
+Use the [endpoint capture workflow](../docs/CALIBRATION_CAPTURE.md) and desktop [`summarize_calibration.py`](summarize_calibration.py) to review two stationary CSV captures. The analyzer checks data consistency and proposes bounds; it does not apply them.
