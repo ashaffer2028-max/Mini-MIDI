@@ -19,7 +19,7 @@ ADC oversampling, EMA smoothing and calibration defaults are inherited from revi
 
 ## Measure and enter per-pot bounds
 
-For repeated raw readings with per-window statistics, use the optional [bench diagnostic](../tools/README.md). Back up and restore your controller program as described there.
+For repeated raw readings with per-window statistics, use the optional [bench diagnostic](../tools/README.md). For CSV capture and desktop candidate-bound calculations, follow the [endpoint capture workflow](CALIBRATION_CAPTURE.md). Back up and restore your controller program as described there.
 
 1. Start revision 2 normally, then interrupt it with Ctrl-C in the CircuitPython serial console. MIDI transmission stops while measuring; the initialized `pot_deck_a`, `pot_deck_b` and `pot_crossfader` objects remain available in that session.
 2. With all pots at their low-output stops, run `print(pot_deck_a.value, pot_deck_b.value, pot_crossfader.value)` repeatedly. Record a range of settled readings for each pot, not one outlier. Repeat at the high-output stops. Raw values increasing in the wrong physical direction indicate reversed outer terminals; calibration does not reverse polarity.
