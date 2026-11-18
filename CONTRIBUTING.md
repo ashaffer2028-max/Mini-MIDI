@@ -33,3 +33,11 @@ For firmware deployment, copy only `firmware/code.py` and `firmware/midi_logic.p
 Use focused commits and a pull request. Explain the changed behavior and the checks performed. Preserve existing MIDI assignments unless a change is intentional and documented in the [mapping guide](docs/MIDI_MAPPING.md).
 
 Keep generated Python caches and virtual environments out of commits. Treat candidate parts, supplier availability, physical measurements and completed tests as separate facts; record only evidence actually obtained.
+
+## Automated desktop checks
+
+[Desktop checks](.github/workflows/desktop-checks.yml) runs source compilation and the unittest suite on pull requests, pushes to `main` and manual dispatch. The matrix uses Ubuntu 24.04 and Windows Server 2025 with Python 3.12 and 3.14. It installs no Python packages; the firmware and calibration simulations use the standard library. The official checkout/setup actions are pinned to reviewed commit SHAs, with read-only repository permissions and checkout credential persistence disabled.
+
+The default jobs do **not** install KiCad: PCB integration tests explicitly skip when `pcbnew`/`kicad-cli` are unavailable. A green desktop job is not an ERC/DRC result or hardware validation. Before modifying PCB sources, also run the [KiCad checks](hardware/pcb/README.md#recheck-after-edits) locally and report any skipped tests separately. Firmware still requires CircuitPython/KB2040 bench testing.
+
+Workflow references reviewed 2026-11-18: [GitHub Python testing guidance](https://docs.github.com/en/actions/tutorials/build-and-test-code/python), [checkout v7.0.1](https://github.com/actions/checkout/releases/tag/v7.0.1) and [setup-python v7.1.0](https://github.com/actions/setup-python/releases/tag/v7.1.0). The matrix checks desktop Python compatibility; it does not establish CircuitPython runtime compatibility.

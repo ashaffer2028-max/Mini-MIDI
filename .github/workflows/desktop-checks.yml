@@ -1,0 +1,40 @@
+name: Desktop checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2025]
+        python: ['3.12', '3.14']
+    steps:
+      - name: Check out source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Compile current Python sources
+        run: python -m compileall -q firmware tools tests hardware/pcb/rev-a
+      - name: Run desktop tests
+        run: python -m unittest discover -s tests -v
+      - name: Explain validation scope
+        run: python -c "print('Desktop simulations only. KiCad integration tests skip without pcbnew and kicad-cli. No ERC, DRC, physical fit or KB2040 validation is established by this job.')"
