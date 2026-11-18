@@ -28,6 +28,48 @@ class PcbAuditTests(unittest.TestCase):
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertEqual(json.loads(result.stdout)['status'], 'pass')
 
+    def test_translation_and_rotation_preserve_geometry_but_pad_edits_fail(self):
+        import pcbnew
+
+        with tempfile.TemporaryDirectory() as tmp:
+            project = pathlib.Path(tmp) / 'project'
+            shutil.copytree(PROJECT, project)
+            path = project / 'mini-midi-carrier.kicad_pcb'
+            for angle in (90, 180, 270, 37):
+                with self.subTest(angle=angle):
+                    board = pcbnew.LoadBoard(str(PROJECT / path.name))
+                    module = next(f for f in board.GetFootprints() if f.GetReference() == 'U1')
+                    module.SetPosition(pcbnew.VECTOR2I(pcbnew.FromMM(65), pcbnew.FromMM(45)))
+                    module.SetOrientationDegrees(angle)
+                    pcbnew.SaveBoard(str(path), board)
+                    for optimized in (False, True):
+                        result = self.run_audit(project=project, optimized=optimized)
+                        self.assertEqual(result.returncode, 0, result.stderr)
+                    pad = next(iter(module.Pads()))
+                    pad.SetFPRelativePosition(pad.GetFPRelativePosition() +
+                        pcbnew.VECTOR2I(pcbnew.FromMM(1), 0))
+                    pcbnew.SaveBoard(str(path), board)
+                    for optimized in (False, True):
+                        result = self.run_audit(project=project, optimized=optimized)
+                        self.assertNotEqual(result.returncode, 0)
+                        self.assertIn('differs from source coordinates', result.stderr)
+
+    def test_back_side_module_requires_explicit_design_review(self):
+        import pcbnew
+
+        with tempfile.TemporaryDirectory() as tmp:
+            project = pathlib.Path(tmp) / 'project'
+            shutil.copytree(PROJECT, project)
+            path = project / 'mini-midi-carrier.kicad_pcb'
+            board = pcbnew.LoadBoard(str(path))
+            module = next(f for f in board.GetFootprints() if f.GetReference() == 'U1')
+            module.Flip(module.GetPosition(), False)
+            pcbnew.SaveBoard(str(path), board)
+            for optimized in (False, True):
+                result = self.run_audit(project=project, optimized=optimized)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn('must remain on the front side', result.stderr)
+
     def test_bad_source_coordinate_fails_including_optimized_mode(self):
         with tempfile.TemporaryDirectory() as tmp:
             project = pathlib.Path(tmp) / 'project'

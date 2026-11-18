@@ -88,3 +88,9 @@ python3 hardware/pcb/rev-a/export_fit_template.py
 Use KiCad's Python with `pcbnew`. The [exporter](rev-a/export_fit_template.py) records the source PCB SHA-256 in SVG metadata, uses millimeter page dimensions with a matching viewBox, and rejects unsupported outlines or a board too large for this sheet. No native design, pin assignment, routing or check report was changed by this paper template.
 
 Desktop verification on 2026-11-16: all 44 SVG pad centers and drill radii match the native PCB, and page units/scale bars were checked numerically. The rendered sheet was visually inspected. All 26 existing desktop tests pass with KiCad Python. Fresh KiCad 9.0.2 checks report 0 ERC violations, 0 geometric DRC violations, 20 unconnected items and 0 schematic parity issues. These checks do not verify printer scaling or actual part/enclosure fit.
+
+## Placement-independent audit (2026-11-18)
+
+The module geometry check now uses KiCad's footprint-relative pad positions. Moving or rotating the complete front-side module no longer creates a false source-coordinate mismatch; moving one pad within the footprint still fails. Back-side mounting is rejected explicitly because this draft's mounting orientation has not been reviewed for a flipped module. This check does not approve a new placement: rerun DRC/parity, regenerate previews/fit sheets and review USB/enclosure clearance after moving parts.
+
+Regression checks use temporary board copies at 90°, 180°, 270° and 37°, plus deliberately displaced pads and a flipped module. Both normal and optimized Python are checked. The committed board has not moved. Reviewed 2026-11-18 against the [official KiCad 9 PAD API](https://docs.kicad.org/doxygen-python-9.0/classpcbnew_1_1PAD.html), including inherited `GetFPRelativePosition()`.

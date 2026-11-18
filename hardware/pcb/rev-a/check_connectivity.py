@@ -31,6 +31,8 @@ def audit(project_dir, repo_root):
     modules = [f for f in board.GetFootprints() if f.GetReference() == 'U1']
     require(len(modules) == 1, 'Expected exactly one module footprint U1')
     module = modules[0]
+    require(module.GetLayer() == pcbnew.F_Cu,
+            'Module U1 must remain on the front side; flipped mounting is not reviewed')
     pads = list(module.Pads())
     padmap = {pad.GetNumber(): pad for pad in pads}
     numbers = {str(pin['number']) for pin in source['pins']}
@@ -41,7 +43,8 @@ def audit(project_dir, repo_root):
     for pin in source['pins']:
         number = str(pin['number'])
         pad = padmap[number]
-        pos = pad.GetPosition() - module.GetPosition()
+        # Compare footprint-local geometry, independent of placement/rotation.
+        pos = pad.GetFPRelativePosition()
         require(abs(pcbnew.ToMM(pos.x) - pin['x_mm']) < .001 and
                 abs(pcbnew.ToMM(pos.y) - pin['y_mm']) < .001,
                 'Module pad {} differs from source coordinates'.format(number))
