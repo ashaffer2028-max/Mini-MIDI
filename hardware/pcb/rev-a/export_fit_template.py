@@ -100,9 +100,12 @@ def export(board_path, output):
             text(fx + 2.5, fy, ref, 2.4)
         for pad in sorted(f.Pads(), key=lambda pad: int(pad.GetNumber())):
             x, y = xy(pad.GetPosition())
-            radius = p.ToMM(pad.GetDrillSize().x) / 2
-            if radius <= 0:
-                raise ValueError('Template requires through-hole pads')
+            drill = pad.GetDrillSize()
+            if (pad.GetDrillShape() != p.PAD_DRILL_SHAPE_CIRCLE or
+                    drill.x != drill.y or drill.x <= 0):
+                raise ValueError('Template requires circular drills: {} pad {}; '
+                                 'slots must not be shown as circles'.format(ref, pad.GetNumber()))
+            radius = p.ToMM(drill.x) / 2
             element('circle', cx=f'{x:.4f}', cy=f'{y:.4f}', r=f'{radius:.4f}',
                     fill='white', stroke='black', **{'stroke-width': '.15',
                     'data-ref': ref, 'data-pad': pad.GetNumber()})

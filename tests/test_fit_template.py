@@ -72,6 +72,18 @@ class FitTemplateTests(unittest.TestCase):
                 self.assertGreater(dx * px + dy * py, 0)
                 self.assertNotIn('USB faces left', self.output.read_text())
 
+    def test_slot_drills_are_rejected_without_overwriting_existing_sheet(self):
+        pad = next(iter(self.module.Pads()))
+        self.output.write_text('existing reviewed sheet')
+        for shape, size in ((self.p.PAD_DRILL_SHAPE_OBLONG, (1, 2)),
+                            (self.p.PAD_DRILL_SHAPE_CIRCLE, (1, 2))):
+            with self.subTest(shape=shape):
+                pad.SetDrillShape(shape)
+                pad.SetDrillSize(self.p.VECTOR2I(*[self.p.FromMM(v) for v in size]))
+                self.p.SaveBoard(str(self.board_path), self.board)
+                with self.assertRaisesRegex(ValueError, 'requires circular drills'):
+                    exporter.export(self.board_path, self.output)
+                self.assertEqual(self.output.read_text(), 'existing reviewed sheet')
 
 
 if __name__ == '__main__':
