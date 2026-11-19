@@ -88,3 +88,21 @@ python3 hardware/pcb/rev-a/export_fit_template.py
 Use KiCad's Python with `pcbnew`. The [exporter](rev-a/export_fit_template.py) records the source PCB SHA-256 in SVG metadata, uses millimeter page dimensions with a matching viewBox, and rejects unsupported outlines or a board too large for this sheet. No native design, pin assignment, routing or check report was changed by this paper template.
 
 Desktop verification on 2026-11-16: all 44 SVG pad centers and drill radii match the native PCB, and page units/scale bars were checked numerically. The rendered sheet was visually inspected. All 26 existing desktop tests pass with KiCad Python. Fresh KiCad 9.0.2 checks report 0 ERC violations, 0 geometric DRC violations, 20 unconnected items and 0 schematic parity issues. These checks do not verify printer scaling or actual part/enclosure fit.
+
+## Placement-independent audit (2026-11-18)
+
+The module geometry check now uses KiCad's footprint-relative pad positions. Moving or rotating the complete front-side module no longer creates a false source-coordinate mismatch; moving one pad within the footprint still fails. Back-side mounting is rejected explicitly because this draft's mounting orientation has not been reviewed for a flipped module. This check does not approve a new placement: rerun DRC/parity, regenerate previews/fit sheets and review USB/enclosure clearance after moving parts.
+
+Regression checks use temporary board copies at 90°, 180°, 270° and 37°, plus deliberately displaced pads and a flipped module. Both normal and optimized Python are checked. The committed board has not moved. Reviewed 2026-11-18 against the [official KiCad 9 PAD API](https://docs.kicad.org/doxygen-python-9.0/classpcbnew_1_1PAD.html), including inherited `GetFPRelativePosition()`.
+
+## Fit-sheet USB direction (2026-11-19)
+
+The fixed “USB faces left” annotation is replaced by a direction arrow transformed with the front-side KB2040 footprint. The module title and USB annotation move with it; the sheet rejects a missing, duplicate or back-side module rather than labeling an unreviewed mounting arrangement. The arrow indicates the USB end only: it is **not** the connector outline, plug overhang or a keepout.
+
+The existing [pinned Adafruit board source](https://github.com/adafruit/Adafruit-KB2040-PCB/blob/b4160dcf4385ef2cc30e9652489328321720ee4b/Adafruit%20KB2040.brd) was rechecked on 2026-11-19: USB element X6 lies at Eagle y=8.89mm, on the module's west end. The exporter uses the existing 33.02 × 17.78mm bare-board convention. Rotation uses the [official KiCad 9 FOOTPRINT orientation API](https://docs.kicad.org/doxygen-python-9.0/classpcbnew_1_1FOOTPRINT.html); regression tests compare the arrow against the independently transformed module pad positions at 0°, 90°, 180°, 270° and 37°.
+
+## Supported fit-sheet hole geometry (2026-11-19)
+
+The sheet supports circular drilled holes only. The exporter now checks both drill dimensions and the KiCad drill-shape field before writing the SVG. Oblong slots or unequal drill dimensions raise an error instead of being silently shown as circles. A failed export leaves an existing sheet untouched; that old sheet is stale until a supported export succeeds. Always check the command exit status and source hash before using a sheet.
+
+Tests check all 44 current pad centers/radii, physical SVG units, both scale bars, rotation behavior and rejection of slot geometry in temporary board copies. No native board or hole dimensions changed. API reference reviewed 2026-11-19: [KiCad 9 PAD drill size/shape methods](https://docs.kicad.org/doxygen-python-9.0/classpcbnew_1_1PAD.html). The regenerated current sheet and a rotated temporary example were visually inspected; no printer or physical fit check was performed.

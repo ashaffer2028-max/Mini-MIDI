@@ -5,6 +5,7 @@ Run using KiCad's Python. This is a paper-fit aid, not manufacturing output.
 from pathlib import Path
 import argparse
 import hashlib
+import math
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parent
@@ -26,6 +27,10 @@ def export(board_path, output):
     width, height = p.ToMM(xmax - xmin), p.ToMM(ymax - ymin)
     if width > 110 or height > 65:
         raise ValueError('Outline exceeds this print sheet; revise page layout first')
+    # A top-view sheet cannot represent an unreviewed back-side module.
+    modules = [f for f in board.GetFootprints() if f.GetReference() == 'U1']
+    if len(modules) != 1 or modules[0].GetLayer() != p.F_Cu:
+        raise ValueError('Expected one front-side KB2040 module U1')
     svg = ET.Element(f'{{{NS}}}svg', width='190mm', height='165mm',
                      viewBox='0 0 190 165')
     ET.SubElement(svg, f'{{{NS}}}title').text = 'Mini-MIDI paper-fit template, top view'
@@ -46,6 +51,13 @@ def export(board_path, output):
         return element('line', x1=x1, y1=y1, x2=x2, y2=y2,
                        stroke='black', **{'stroke-width': '.2'}, **extra)
 
+    defs = ET.SubElement(svg, f'{{{NS}}}defs')
+    marker = ET.SubElement(defs, f'{{{NS}}}marker', id='usb-arrow',
+                           markerWidth='4', markerHeight='4', refX='3', refY='2',
+                           orient='auto', markerUnits='userSpaceOnUse')
+    ET.SubElement(marker, f'{{{NS}}}path', d='M 0,0 L 3,2 L 0,4',
+                  fill='none', stroke='black', **{'stroke-width': '.3'})
+
     text(15, 12, 'Mini-MIDI carrier | PAPER FIT ONLY', 4)
     text(15, 19, 'Top view; print at 100% / actual size. Disable fit-to-page.')
     text(15, 25, 'Measure BOTH scale bars before comparing parts. No drilling or fabrication.')
@@ -65,15 +77,35 @@ def export(board_path, output):
                     if d.GetShape() != p.SHAPE_T_SEGMENT:
                         raise ValueError('Unsupported module fabrication shape')
                     line(*xy(d.GetStart()), *xy(d.GetEnd()), **{'stroke-dasharray': '1,1'})
-            text(fx + 4, fy + 8, 'U1 KB2040', 2.4)
-            text(fx + 4, fy + 11.5, 'USB faces left', 2.4)
+            # Source-map convention: module-local USB edge is x=0, y=8.89.
+            # KiCad positive angles rotate counterclockwise on the screen.
+            angle = math.radians(f.GetOrientationDegrees())
+
+            def module_xy(x, y):
+                return (fx + x * math.cos(angle) + y * math.sin(angle),
+                        fy - x * math.sin(angle) + y * math.cos(angle))
+
+            cx, cy = module_xy(16.51, 8.89)
+            title = element('text', x=cx, y=cy, fill='black',
+                            **{'font-family': 'sans-serif', 'font-size': '2.4',
+                               'text-anchor': 'middle'})
+            title.text = 'U1 KB2040'
+            sx, sy = module_xy(4, 8.89)
+            ex, ey = module_xy(-2, 8.89)
+            line(sx, sy, ex, ey, **{'id': 'module-usb-direction',
+                                  'marker-end': 'url(#usb-arrow)'})
+            tx, ty = module_xy(6, 5.5)
+            text(tx, ty, 'USB', 2.2)
         else:
             text(fx + 2.5, fy, ref, 2.4)
         for pad in sorted(f.Pads(), key=lambda pad: int(pad.GetNumber())):
             x, y = xy(pad.GetPosition())
-            radius = p.ToMM(pad.GetDrillSize().x) / 2
-            if radius <= 0:
-                raise ValueError('Template requires through-hole pads')
+            drill = pad.GetDrillSize()
+            if (pad.GetDrillShape() != p.PAD_DRILL_SHAPE_CIRCLE or
+                    drill.x != drill.y or drill.x <= 0):
+                raise ValueError('Template requires circular drills: {} pad {}; '
+                                 'slots must not be shown as circles'.format(ref, pad.GetNumber()))
+            radius = p.ToMM(drill.x) / 2
             element('circle', cx=f'{x:.4f}', cy=f'{y:.4f}', r=f'{radius:.4f}',
                     fill='white', stroke='black', **{'stroke-width': '.15',
                     'data-ref': ref, 'data-pad': pad.GetNumber()})
