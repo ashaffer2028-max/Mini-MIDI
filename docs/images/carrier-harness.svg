@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1110 1250" width="1110" height="1250">
+  <title>Mini-MIDI carrier-to-panel harness: intended connections</title>
+  <desc>Logical wire connections for J1 through J7. Not a terminal rear view or a dimensional drawing. The board is an unrouted draft.</desc>
+  <rect x="0" y="0" width="1110" height="1250" fill="white" />
+  <text x="30" y="42" fill="#18232b" font-family="sans-serif" font-size="30" font-weight="bold">Mini-MIDI | carrier-to-panel harness</text>
+  <text x="30" y="75" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">LOGICAL CONNECTIONS ONLY — not a rear view, cable orientation or scale drawing.</text>
+  <text x="30" y="102" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">Unrouted carrier draft • physical wiring and fit untested • reviewed 2026-11-20</text>
+  <rect x="30" y="130" width="510" height="240" rx="8" fill="#f8fafb" stroke="#80909b" />
+  <text x="48" y="162" fill="#18232b" font-family="sans-serif" font-size="23" font-weight="bold">J1 — Deck A pot</text>
+  <text x="48" y="187" fill="#18232b" font-family="sans-serif" font-size="16" font-weight="normal">Generic 3-terminal potentiometer</text>
+  <rect x="330" y="205" width="190" height="130" rx="5" fill="white" stroke="#80909b" />
+  <text x="50" y="236" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">1 / GND</text>
+  <line x1="200" y1="230" x2="330" y2="230" stroke="#333333" stroke-width="3" data-ref="J1" data-pin="1" data-net="/GND" data-terminal="track end: low" />
+  <circle cx="200" cy="230" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="230" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="236" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">track end: low</text>
+  <text x="50" y="276" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">2 / A0</text>
+  <line x1="200" y1="270" x2="330" y2="270" stroke="#12618b" stroke-width="3" data-ref="J1" data-pin="2" data-net="/A0_DECK_A" data-terminal="wiper" />
+  <circle cx="200" cy="270" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="270" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="276" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">wiper</text>
+  <text x="50" y="316" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">3 / +3V3</text>
+  <line x1="200" y1="310" x2="330" y2="310" stroke="#b32323" stroke-width="3" data-ref="J1" data-pin="3" data-net="/+3V3" data-terminal="track end: high" />
+  <circle cx="200" cy="310" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="310" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="316" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">track end: high</text>
+  <text x="48" y="356" fill="#18232b" font-family="sans-serif" font-size="15" font-weight="normal">Identify the wiper from the actual pot drawing or meter.</text>
+  <rect x="30" y="390" width="510" height="240" rx="8" fill="#f8fafb" stroke="#80909b" />
+  <text x="48" y="422" fill="#18232b" font-family="sans-serif" font-size="23" font-weight="bold">J2 — Deck B pot</text>
+  <text x="48" y="447" fill="#18232b" font-family="sans-serif" font-size="16" font-weight="normal">Generic 3-terminal potentiometer</text>
+  <rect x="330" y="465" width="190" height="130" rx="5" fill="white" stroke="#80909b" />
+  <text x="50" y="496" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">1 / GND</text>
+  <line x1="200" y1="490" x2="330" y2="490" stroke="#333333" stroke-width="3" data-ref="J2" data-pin="1" data-net="/GND" data-terminal="track end: low" />
+  <circle cx="200" cy="490" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="490" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="496" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">track end: low</text>
+  <text x="50" y="536" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">2 / A1</text>
+  <line x1="200" y1="530" x2="330" y2="530" stroke="#12618b" stroke-width="3" data-ref="J2" data-pin="2" data-net="/A1_DECK_B" data-terminal="wiper" />
+  <circle cx="200" cy="530" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="530" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="536" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">wiper</text>
+  <text x="50" y="576" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">3 / +3V3</text>
+  <line x1="200" y1="570" x2="330" y2="570" stroke="#b32323" stroke-width="3" data-ref="J2" data-pin="3" data-net="/+3V3" data-terminal="track end: high" />
+  <circle cx="200" cy="570" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="570" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="576" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">track end: high</text>
+  <text x="48" y="616" fill="#18232b" font-family="sans-serif" font-size="15" font-weight="normal">Identify the wiper from the actual pot drawing or meter.</text>
+  <rect x="30" y="650" width="510" height="240" rx="8" fill="#f8fafb" stroke="#80909b" />
+  <text x="48" y="682" fill="#18232b" font-family="sans-serif" font-size="23" font-weight="bold">J3 — Crossfader pot</text>
+  <text x="48" y="707" fill="#18232b" font-family="sans-serif" font-size="16" font-weight="normal">Generic 3-terminal potentiometer</text>
+  <rect x="330" y="725" width="190" height="130" rx="5" fill="white" stroke="#80909b" />
+  <text x="50" y="756" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">1 / GND</text>
+  <line x1="200" y1="750" x2="330" y2="750" stroke="#333333" stroke-width="3" data-ref="J3" data-pin="1" data-net="/GND" data-terminal="track end: low" />
+  <circle cx="200" cy="750" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="750" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="756" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">track end: low</text>
+  <text x="50" y="796" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">2 / A2</text>
+  <line x1="200" y1="790" x2="330" y2="790" stroke="#12618b" stroke-width="3" data-ref="J3" data-pin="2" data-net="/A2_XFADER" data-terminal="wiper" />
+  <circle cx="200" cy="790" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="790" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="796" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">wiper</text>
+  <text x="50" y="836" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">3 / +3V3</text>
+  <line x1="200" y1="830" x2="330" y2="830" stroke="#b32323" stroke-width="3" data-ref="J3" data-pin="3" data-net="/+3V3" data-terminal="track end: high" />
+  <circle cx="200" cy="830" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="830" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="836" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">track end: high</text>
+  <text x="48" y="876" fill="#18232b" font-family="sans-serif" font-size="15" font-weight="normal">Identify the wiper from the actual pot drawing or meter.</text>
+  <rect x="570" y="130" width="510" height="240" rx="8" fill="#f8fafb" stroke="#80909b" />
+  <text x="588" y="162" fill="#18232b" font-family="sans-serif" font-size="23" font-weight="bold">J4 — Filter</text>
+  <text x="588" y="187" fill="#18232b" font-family="sans-serif" font-size="16" font-weight="normal">7101SYZBE candidate • maintained SPDT</text>
+  <rect x="870" y="205" width="190" height="130" rx="5" fill="white" stroke="#80909b" />
+  <text x="590" y="236" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">1 / D2</text>
+  <line x1="740" y1="230" x2="870" y2="230" stroke="#12618b" stroke-width="3" data-ref="J4" data-pin="1" data-net="/D2_FILTER" data-terminal="lug 3: throw" />
+  <circle cx="740" cy="230" r="4" fill="white" stroke="#18232b" />
+  <circle cx="870" cy="230" r="4" fill="white" stroke="#18232b" />
+  <text x="882" y="236" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 3: throw</text>
+  <text x="590" y="276" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">2 / GND</text>
+  <line x1="740" y1="270" x2="870" y2="270" stroke="#333333" stroke-width="3" data-ref="J4" data-pin="2" data-net="/GND" data-terminal="lug 2: common" />
+  <circle cx="740" cy="270" r="4" fill="white" stroke="#18232b" />
+  <circle cx="870" cy="270" r="4" fill="white" stroke="#18232b" />
+  <text x="882" y="276" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 2: common</text>
+  <text x="588" y="356" fill="#18232b" font-family="sans-serif" font-size="15" font-weight="normal">Lug 1: NO WIRE; insulate. No +3V3 wire on switches.</text>
+  <rect x="570" y="390" width="510" height="240" rx="8" fill="#f8fafb" stroke="#80909b" />
+  <text x="588" y="422" fill="#18232b" font-family="sans-serif" font-size="23" font-weight="bold">J6 — Split</text>
+  <text x="588" y="447" fill="#18232b" font-family="sans-serif" font-size="16" font-weight="normal">7101SYZBE candidate • maintained SPDT</text>
+  <rect x="870" y="465" width="190" height="130" rx="5" fill="white" stroke="#80909b" />
+  <text x="590" y="496" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">1 / D5</text>
+  <line x1="740" y1="490" x2="870" y2="490" stroke="#12618b" stroke-width="3" data-ref="J6" data-pin="1" data-net="/D5_SPLIT" data-terminal="lug 3: throw" />
+  <circle cx="740" cy="490" r="4" fill="white" stroke="#18232b" />
+  <circle cx="870" cy="490" r="4" fill="white" stroke="#18232b" />
+  <text x="882" y="496" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 3: throw</text>
+  <text x="590" y="536" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">2 / GND</text>
+  <line x1="740" y1="530" x2="870" y2="530" stroke="#333333" stroke-width="3" data-ref="J6" data-pin="2" data-net="/GND" data-terminal="lug 2: common" />
+  <circle cx="740" cy="530" r="4" fill="white" stroke="#18232b" />
+  <circle cx="870" cy="530" r="4" fill="white" stroke="#18232b" />
+  <text x="882" y="536" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 2: common</text>
+  <text x="588" y="616" fill="#18232b" font-family="sans-serif" font-size="15" font-weight="normal">Lug 1: NO WIRE; insulate. No +3V3 wire on switches.</text>
+  <rect x="570" y="650" width="510" height="240" rx="8" fill="#f8fafb" stroke="#80909b" />
+  <text x="588" y="682" fill="#18232b" font-family="sans-serif" font-size="23" font-weight="bold">J7 — Assignable</text>
+  <text x="588" y="707" fill="#18232b" font-family="sans-serif" font-size="16" font-weight="normal">7101SYZBE candidate • maintained SPDT</text>
+  <rect x="870" y="725" width="190" height="130" rx="5" fill="white" stroke="#80909b" />
+  <text x="590" y="756" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">1 / D6</text>
+  <line x1="740" y1="750" x2="870" y2="750" stroke="#12618b" stroke-width="3" data-ref="J7" data-pin="1" data-net="/D6_EXTRA" data-terminal="lug 3: throw" />
+  <circle cx="740" cy="750" r="4" fill="white" stroke="#18232b" />
+  <circle cx="870" cy="750" r="4" fill="white" stroke="#18232b" />
+  <text x="882" y="756" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 3: throw</text>
+  <text x="590" y="796" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">2 / GND</text>
+  <line x1="740" y1="790" x2="870" y2="790" stroke="#333333" stroke-width="3" data-ref="J7" data-pin="2" data-net="/GND" data-terminal="lug 2: common" />
+  <circle cx="740" cy="790" r="4" fill="white" stroke="#18232b" />
+  <circle cx="870" cy="790" r="4" fill="white" stroke="#18232b" />
+  <text x="882" y="796" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 2: common</text>
+  <text x="588" y="876" fill="#18232b" font-family="sans-serif" font-size="15" font-weight="normal">Lug 1: NO WIRE; insulate. No +3V3 wire on switches.</text>
+  <rect x="30" y="930" width="1050" height="235" rx="8" fill="#f8fafb" stroke="#80909b" />
+  <text x="48" y="964" fill="#18232b" font-family="sans-serif" font-size="23" font-weight="bold">J5 — EQ selector</text>
+  <text x="48" y="990" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">7103SYZBE candidate • maintained SPDT ON-OFF-ON</text>
+  <rect x="330" y="1005" width="250" height="130" rx="5" fill="white" stroke="#80909b" />
+  <text x="50" y="1036" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">1 / D3</text>
+  <line x1="200" y1="1030" x2="330" y2="1030" stroke="#12618b" stroke-width="3" data-ref="J5" data-pin="1" data-net="/D3_EQ_HIGH" data-terminal="lug 3: high throw" />
+  <circle cx="200" cy="1030" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="1030" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="1036" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 3: high throw</text>
+  <text x="50" y="1076" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">2 / GND</text>
+  <line x1="200" y1="1070" x2="330" y2="1070" stroke="#333333" stroke-width="3" data-ref="J5" data-pin="2" data-net="/GND" data-terminal="lug 2: common" />
+  <circle cx="200" cy="1070" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="1070" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="1076" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 2: common</text>
+  <text x="50" y="1116" fill="#18232b" font-family="sans-serif" font-size="18" font-weight="normal">3 / D4</text>
+  <line x1="200" y1="1110" x2="330" y2="1110" stroke="#12618b" stroke-width="3" data-ref="J5" data-pin="3" data-net="/D4_EQ_LOW" data-terminal="lug 1: low throw" />
+  <circle cx="200" cy="1110" r="4" fill="white" stroke="#18232b" />
+  <circle cx="330" cy="1110" r="4" fill="white" stroke="#18232b" />
+  <text x="342" y="1116" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">lug 1: low throw</text>
+  <text x="620" y="1032" fill="#18232b" font-family="sans-serif" font-size="20" font-weight="bold">Center: both throws open.</text>
+  <text x="620" y="1067" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">Never use the 7101 two-position part here.</text>
+  <text x="620" y="1102" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">No powered rail connects to this selector.</text>
+  <text x="30" y="1200" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">J numbers identify carrier connectors; lug numbers apply only to the named C&amp;K candidates.</text>
+  <text x="30" y="1228" fill="#18232b" font-family="sans-serif" font-size="17" font-weight="normal">Verify isolated harnesses with USB disconnected. Read docs/HARNESS.md before assembly.</text>
+</svg>

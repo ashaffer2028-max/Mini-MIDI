@@ -15,6 +15,8 @@ This wiring table is inferred from the existing firmware, **not verified against
 
 Digital inputs use internal pull-ups: open means high; grounded means low. Swap a pot's outer track terminals if rotation is reversed. Check the component datasheet to identify the wiper.
 
+See the [carrier-to-panel harness guide](HARNESS.md) for the J1–J7 diagram and isolated-harness checks.
+
 ## EQ selector electrical contract
 
 | D3 | D4 | Firmware interpretation |
@@ -34,7 +36,7 @@ Sources checked 2026-11-10. Prices, stock and fit are not guaranteed. The actual
 | --- | --- | --- | --- |
 | 1 | Adafruit KB2040, product 5302 | [Adafruit](https://www.adafruit.com/product/5302) | USB port clearance, headers and board mounting |
 | 3 | 10 kΩ linear rotary pot; product 562 is one prototype candidate | [Adafruit](https://www.adafruit.com/product/562) | Shaft/knob fit, bushing thread, body depth and pin spacing |
-| 3 | Maintained SPST ON-OFF switch | [DigiKey](https://www.digikey.com/) / [Mouser](https://www.mouser.com/) | Panel opening and low-current contact suitability; no specific SKU selected |
+| 3 | Maintained open/ground switch | [7101SYZBE candidate](#specific-onoff-toggle-candidate), SPDT used as two-wire on/off | One unused throw must be insulated; panel fit and installed model unverified |
 | 1 | Maintained center-off selector matching the truth table | [C&K 7103SYZBE candidate](#specific-eq-selector-candidate) | SPDT option below; fit and installed model unverified |
 | 3 | Knobs matching selected pot shaft | [SparkFun](https://www.sparkfun.com/) / Adafruit | Shaft diameter, flat/spline and nearby switch clearance |
 | 1 | USB data cable matching host and board | Adafruit / SparkFun | Data support, connector strain relief and bend radius |
@@ -85,3 +87,21 @@ The datasheet's page 3 identifies terminal 2 as common. With USB disconnected, w
 Position 1 connects 2–3 (high EQ), center opens both (mid EQ), and position 3 connects 2–1 (low EQ). Verify terminal markings and all three positions with a continuity meter; do not infer lug numbering from which way the lever points. Swap the two throw wires if the desired physical high/low direction is reversed. No 3.3V wire is connected to this selector.
 
 The low-level contact option suits the intended pull-up-to-ground signaling in principle. Electrical and mechanical operation still require testing on the build. Similar part numbers with momentary actions, silver power contacts or different bushings are not automatically interchangeable. This is a researched option, not a purchase instruction.
+
+## Specific on/off toggle candidate
+
+Reviewed **2026-11-20**. Three **C&K 7101SYZBE** switches are candidates for D2, D5 and D6. They are maintained **SPDT ON-NONE-ON**, used with one throw left unconnected to provide the existing two-wire open/ground behavior. They are not confirmed installed parts, a footprint replacement or an approved enclosure fit.
+
+The [official 7000-series datasheet](https://www.littelfuse.com/assetdocs/littelfuse-ck-toggle-7000-series-datasheet?assetguid=fed01bc6-88d0-4bda-b896-13c98cf9e90e), revised 2026-10-02, identifies model 7101 and terminal connections on page 3; page 17 specifies B gold contacts for low-level/dry circuits, rated at most 0.4VA at 20V AC/DC. This supports the pull-up-to-ground application in principle, not a measured reliability guarantee. Do not substitute silver power-contact variants solely because their current rating is higher.
+
+| Candidate terminal | Connection for each switch |
+| --- | --- |
+| 2, common | J4.2 / J6.2 / J7.2, respectively: GND |
+| 3 | J4.1 (D2) / J6.1 (D5) / J7.1 (D6), respectively |
+| 1 | No wire; individually insulate the unused lug |
+
+The 2–3 position grounds the input (on); the 2–1 position leaves the input open (off) because terminal 1 is unwired. This is not the three-position EQ selector: retain the 7103 center-off requirement there. Confirm terminals and both states with an unpowered continuity test; the lever direction does not identify a lug.
+
+Supplier lookup: [DigiKey CKN1021-ND, 7101SYZBE](https://www.digikey.com/en/products/detail/littelfuse-c-k/7101SYZBE/13113). Indexed supplier data identifies an active panel-mount solder-lug part with 1/4-40 bushing, 6.35mm cutout and 10.67mm actuator. The live page could not be retrieved during this review, so **stock, price and delivery remain unchecked**. Confirm the exact manufacturer drawing, panel thickness, rear body/lug space and solder access before cutting. No new mounting dimensions have been applied to CAD.
+
+An alternative investigated, [NKK M2011SS1G01](https://www.nkkswitches.com/wp-content/themes/impress-blank/search/inc/part.php?part_no=M2011SS1G01), is **not selected**: NKK's part page lists discontinuation under PCN 400, despite a [DigiKey Marketplace listing](https://www.digikey.com/en/products/detail/nkk-switches/M2011SS1G01/27520170) showing inventory in indexed results. Lifecycle and remaining supplier stock are separate facts; neither establishes suitability for a new build.
