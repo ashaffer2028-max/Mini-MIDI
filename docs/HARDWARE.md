@@ -15,6 +15,8 @@ This wiring table is inferred from the existing firmware, **not verified against
 
 Digital inputs use internal pull-ups: open means high; grounded means low. Swap a pot's outer track terminals if rotation is reversed. Check the component datasheet to identify the wiper.
 
+See the [carrier-to-panel harness guide](HARNESS.md) for the J1–J7 diagram and isolated-harness checks.
+
 ## EQ selector electrical contract
 
 | D3 | D4 | Firmware interpretation |
